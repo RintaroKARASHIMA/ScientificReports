@@ -4,25 +4,31 @@
 % https://www.nature.com/srep/author-instructions/submission-guidelines#texlatex-files
 
 \documentclass[fleqn,10pt]{wlscirep}
+\usepackage{chngcntr}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
-\title{A fundamental analysis of technological complexity in Japanese corporations}
+\usepackage{setspace}
+\doublespacing
+\doublespacing
+% \usepackage[dvipdfmx]{graphicx}
 
-\author[1,*]{Rintaro Karashima}
-\author[1, 2]{Hiroyasu Inoue}
+\title{Technological Complexity Based on Japanese Patent Data}
+
+\author[1]{Rintaro Karashima}
+\author[1, 2, *]{Hiroyasu Inoue}
 % \author[1,2,+]{Christine Author}
 % \author[2,+]{Derek Author}
 \affil[1]{University of Hyogo, Graduate School of Information Science, Kobe, 6500047, Japan}
 \affil[2]{RIKEN, Center for Computational Science, Kobe, 6500047, Japan}
 
-\affil[*]{rintaro.karashima@gmail.com}
+\affil[*]{inoue@gsis.u-hyogo.ac.jp}
 
 % \affil[+]{these authors contributed equally to this work}
 
-%\keywords{Keyword1, Keyword2, Keyword3}
+\keywords{Keyword1, Keyword2, Keyword3}
 
 \begin{abstract}
-% Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations. Example Abstract. Abstract must not include subheadings or citations.
+As international competition intensifies in technologies, nations need to identify key technologies to foster innovation. However, the identification is difficult because a technology is independent, therefore has complex nature. Here, this study aims to assess patent technological fields by applying Technological Complexity Index from a corporate perspective, addressing its underutilization in Japan despite its potential. By utilizing carefully processed patent data from fiscal years 1981 to 2010, we analyze the bipartite network which consists of 1,938 corporations and 35 or 124 technological fields. Our findings provide quantitative characteristics of ubiquity and sophistication for patent fields, the detailed technological trends that reflect the social context, and methodological stability for policymakers and researchers, contributing to targeted innovation strategies in Japan.
 
 \end{abstract}
 \begin{document}
@@ -37,228 +43,218 @@
 
 % \noindent Please note: Abbreviations should be introduced at the first mention in the main text – no abbreviations lists. Suggested structure of main text (not enforced) is provided below.
 
-\section*{Introduction}
+\section*{Introduction} \label{Introduction}
 
 % The Introduction section, of referenced text\cite{Figueredo:2009dg} expands on the background of the work (some overlap with the Abstract is acceptable). The introduction should not include subheadings.
 
-In the twenty first century, the global landscape of innovation has grown markedly competitive. Nations around the world have designed diverse industrial policies to foster innovation, recognizing it as a vital factor for sustaining economic competitiveness. Despite the abundance of strategies, one persistent challenge remains. It is difficult to identify the core technologies and actors that drive innovation. The difficulty arises from the fact that innovation is an intangible phenomenon emerging from an interconnected ecosystem composed of countries, cities, corporations, and technologies. Understanding this complex environment requires methodologies capable of pinpointing the central elements that contribute to innovation amid intricate interdependencies.
-In this context, researchers have recently introduced various indicators to capture the importance of key technological fields in complex environments. Specifically, Hidalgo and Hausmann proposed an approach that measures sophistication by applying network analysis to economic data, and this framework has since been adapted to different areas including patent data. Their Hidalgo Hausmann algorithm has proven instrumental in highlighting technologies and capabilities that hold particular importance [6–10]. Building on this foundation, Balland and Rigby [13] developed the Technological Complexity Index to measure the complexity of technological fields using patent data. This index has informed numerous empirical studies aimed at guiding industrial and innovation policies, especially in the European Union [14–17]. More recently, the method has been extended to Asian contexts and corporate level analyses, supported by increasing availability of detailed patent databases [18–20].
+In the twenty first century, the global landscape of innovation has grown markedly competitive. 
+Nations around the world have designed diverse industrial policies to foster innovation, recognizing it as a vital factor for sustaining economic competitiveness. 
+Despite the abundance of strategies, one persistent difficulty to identify the core technologies and actors that drive innovation remains. 
+The difficulty arises from the fact that innovation is an intangible phenomenon emerging from an interconnected ecosystem composed of countries, cities, corporations, and technologies. 
+Understanding this complex environment requires methodologies capable of pinpointing the central elements that contribute to innovation amid intricate interdependencies.
+Globally, different regions and institutions have approached this challenge from various angles. 
+In the European Union, the concept of Smart Specialisation \cite{EC_SSP_nodate,Teixeira2022} has helped identify key domains for policy support, while in Japan, science and technology strategies continue to evolve \cite{NISTEP_nodate}. For supporting them, a range of indicators have been proposed to assess innovation across manufacturing, services, and advanced materials \cite{Taques2021,Farcal2023}. 
+Some studies focus on either national-level \cite{Teixeira2022,Abay2024}, regional-level \cite{Balland2018,PintarScherngell2022,Pinheiro2022,Whittle2019} or corporate-level analyses \cite{Bruno2018,Buccellato2016,Kito2018}. 
+Moreover, recent research has addressed diverse sectors such as Industry 4.0 \cite{Teixeira2022}, pharmaceutical biotechnology \cite{Sakakibara2014,Nakamura2022,Bhatia2018,Murakami2024}, and service innovation \cite{Taques2021}, reflecting the breadth of modern innovation ecosystems.
+Among these approaches, a notable stream of research has emerged from the study of product complexity derived from Hidalgo-Hausumann (HH) algorithm\cite{Hidalgo2009}. 
+The algorithm quantifies sophistication by applying network analysis to trade data and it has been adapted to different contexts such as economic, patents, and technological capabilities \cite{Hidalgo2021,Hidalgo2023,Hausmann2024,Balland2022,Chakraborty2020}. 
+The algorithm also has proven instrumental in highlighting technologies and capabilities that hold particular importance. 
 
-Despite these advancements, comprehensive applications of these methods in the Japanese context remain limited. Japan has experienced prolonged economic stagnation, often described as the Lost Decades, which underscores the urgent need to identify the technologies that will drive renewed innovation and international competitiveness [21]. Although some studies, such as the work on automotive suppliers by Kito[22], have employed related approaches, there is a clear lack of a broad analysis that would illuminate the full landscape of Japanese technologies through the lens of complexity.
-This study addresses that gap by applying the Hidalgo Hausmann algorithm to patent data from the Japan Patent Office, focusing on a wide array of technologies held by Japanese corporations. We construct a bipartite network linking corporations and technological fields, and then project it into a monopartite network from which the Technological Complexity Index can be derived. The TCI, represented by the second largest eigenvector of the network adjacency matrix, allows for the simultaneous evaluation of technological spillovers and scarcity. By analyzing trends from 1981 to 2010, this approach provides a stable and finer depiction of the technological landscape that goes beyond conventional quantitative measures such as simple patent counts. In doing so, it captures more nuanced aspects of technological capabilities and their evolution over time.
-Ultimately, this research contributes to a deeper understanding of the Japanese innovation ecosystem. By identifying the central fields that drive innovation through the lens of complexity, this study offers valuable insights that can inform more effective policies and strategies. Such insights have the potential to guide Japan toward renewed economic dynamism and a stronger position in the global technological landscape.
+Building on this foundation, Balland and Rigby \cite{Balland2016} developed the Technological Complexity Index (TCI) to measure the complexity of technological fields using patent data. 
+The TCI captures the nuanced interplay between technological ubiquity (i.e., how few players are capable of producing it) and sophistication (i.e., ubiquitous and produced by key players) \cite{Balland2018}. 
+Various extensions and complementary metrics have been proposed, including fitness-based approaches \cite{Tacchella2012,Wu2016,Albeaik2017} and additional frameworks for classification and measurement \cite{Schmoch2008,Soete1987,Balassa1965,Mealy2019,PintarEssletzbichler2022}.
+More recently, the method has been extended to Asian contexts and corporate-level analyses, supported by the increasing availability of detailed patent databases \cite{Jun2023,Dong2021}. 
+Despite these advancements, comprehensive applications of these methods in the Japanese context remain limited. 
+In addition, although Japan has experienced prolonged economic stagnation, often described as the “Lost Decades”, it can hardly be denied that Japanese government cannot effectively identify the technologies that will drive renewed innovation and international competitiveness \cite{Kobayashi2024}. 
+Although some studies, such as the work on automotive suppliers\cite{Kito2018}, have employed related approaches, there is a clear lack of a broad analysis that would illuminate the full landscape of Japanese technologies through the lens of complexity.
+This study addresses the existing gap by applying the HH algorithm to patent data from the Patent Office of a country, which encompasses a diverse range of technological fields.
+A bipartite network is constructed to link domestic corporations with these technological domains, and a subsequent projection into a monopartite network facilitates the derivation of TCI.
+Represented by the second largest eigenvector of the network adjacency matrix, TCI enables a simultaneous evaluation of both technological spillovers and scarcity.
+An analysis of temporal trends over the period 1981 to 2010 demonstrates that the proposed method yields a robust and detailed depiction of the technological landscape, thereby surpassing conventional quantitative measures such as simple patent counts.
+The assessment reveals detailed aspects of technological capabilities and their evolution over time.
+This study contributes to a comprehensive understanding of the innovation ecosystem by identifying the central technological fields through the lens of complexity.
+The insights obtained herein may inform the development of more effective innovation policies and strategies, and they establish a methodological framework that can be extended to comparative studies in other contexts.
+The rest of this paper is organized as follows. 
+In Results \ref{section:Results} section, we present the ubiquity and complexity of technological fields presented by the patent data, followed by a detailed analysis of technological trends.
+In the Discussion \ref{section:Discussion} section, we provide a critical analysis of our findings and discuss the implications of our results.
+Finally, in the Methods \ref{section:Methods} section, we detail the data processing and methods used in our analysis.
 
-The rest of this paper is organized as follows. In the Results section, we present the ubiquity and complexity of technological fields in Japan, followed by a detailed analysis of technological trends. In the Discussion section, we provide a critical analysis of our findings and discuss the implications of our results. 
-Finally, in the Methods section, we detail the data processing and methods used in our analysis.
 
-% The paper is organised as follows: in “Data”, we describe the data used in this work and we go through our data cleaning procedure. In “Methods”, we introduce the methodologies used in our work, describing the details of the networks and measures we employed. In “Results”, we discuss the results showing how the network techniques can highlight non-trivial clusters of technologies and metropolitan areas, and how both Fitness and coherent diversifcation are linked to a higher increase in the GDPpc of metropolitan areas. Finally, “Discussion” sums up our contributions and hints at future work needed to address questions arising from this study.
-
-\section*{Results}
+\section*{Results} \label{section:Results}
 % Up to three levels of \textbf{subheading} are permitted. Subheadings should not be numbered.
 % In this section, we review the results 
 
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=1]{Figs/Fig1.eps}
-    \caption{The bibpartite network of corporations and technological fields. The edges represent that the corporations produce technologies in the fields.}
-    \label{fig:bipartite}
-\end{figure}
+\subsection*{Characteristics of Technologies} \label{subsection:characteristics}
+In this study, we employ the HH algorithm to derive quantitative indicators that characterize each technology (see Methods~\ref{section:Methods}). First, we define ubiquity (or degree centrality) $K_{T,0}$ as the number of corporations connected to a technology; a lower value indicates that the technology is more exclusive. Similarly, the average diversity $K_{T,1}$, which measures the variety of corporations connected to a technology, implies that a higher value reflects diversified publication, whereas a lower value suggests specialization. In many cases, the average of each indicator is used as a threshold to distinguish high from low values \cite{Hidalgo2009,balland2017tci}.
 
-\subsection*{The ubiquity and complexity of technological fields}
-Fig. \ref{fig:scatter}a shows the Pearson correlation between the ubiquity \(K_(T,0)\) and the average diversity \(K_(T,1)\) of technological fields, with a correlation coefficient of 0.064. Each point represents a technological field and is color-coded according to the five classifications defined by Schmoch [24]. By plotting the mean values as black lines on both axes, we divided the graph into four quadrants, as shown on the right side of Fig. \ref{}a. In the bottom-left quadrant, we find technologies that are relatively non-ubiquitous and produced by non-diversified corporations, including fields such as Electrical Engineering (e.g. Digital communication, Computer technology, and Semiconductors) and Mechanical Engineering (e.g. Handling, Textile and paper machines, and Thermal pro-cesses and apparatus). Particularly, Electrical Engineering, despite having low degree centrality and average mean neighbor degree, is identified as unsophisticated. This is evident from Fig. 2b, which shows the Pearson correlation between the ubiquity \(K_(T,0)\) and the scaled TCI, with a correlation coefficient of 0.594 like Fig. 2a. This suggests that corporations producing Electrical Engineering technologies focus on producing innovations concentrated within the similar fields rather than engaging with ubiquitous technologies related to other industries, indicating that they have relatively closed portfolios. In contrast, in both panels of Fig. 2, we observe that Chemistry and Pharmaceuticals (e.g. Pharmaceuticals, Organic fine chemistry, and Food Chemistry) are located approximately in the top quadrants. These technologies are non-ubiquitous, highly sophisticated, and produced by relatively diversified corporations. Moreover, this result suggests that corporations producing these technologies are connected not only to non-ubiquitous but also to ubiquitous technologies such as Instruments (e.g. Biotechnology, Analysis of biological materials, and Measurement), which are in the right quadrant of Fig. 2b. Focusing on the IPC classes corresponding to these Schmoch classes, we observed high TCI values in technologies related to the production of sugar (C13) and yeast (A21, C12), drug discovery technologies (A61), and technologies for preserving and managing them (C07, A23). These findings align with the social context of the time such as the dawn of drug discovery or development technologies in the period from the 1980s to the 1990s [28, 29]. Also, food chemistry and biotechnology, which were closely connected to these advancements, played an important role not only in Japan but worldwide during the 1990s to the 2000s, contributing to the development of additives to safely preserve or process food in the food industry [30, 31].
+Another key indicator is the TCI, which represents the sophistication required to produce a technology. A threshold of zero divides TCI into high and low categories: a high TCI implies that a technology demands a complex combination of unique inputs and advanced technical expertise which explains why only a few advanced corporations can publish it competitively, whereas a low TCI indicates reliance on widely available capabilities, allowing many corporations to participate.
+
+To analyze the structure of corporate patent publication as depicted by the bipartite graph, we focus on the relationships among these three indicators. The mapping of technologies is based on the Schmoch system \cite{Schmoch2008} (Panel A in Fig.~\ref{fig:scatter}), where $K_{T,1}$ and $K_{T,0}$ are divided by their mean values, and TCI is segmented by a zero threshold.
+
+% \paragraph{Relationship Between Ubiquity and Average Diversity.}
+Panel B in Fig.~\ref{fig:scatter} shows that there is little correlation between $K_{T,0}$ and $K_{T,1}$ (Pearson correlation coefficient $r=0.594$), suggesting that technologies widely held by corporations do not necessarily correspond to more diversified production portfolios. 
+In particular, the lower-left quadrant of Panel B represents sectors with both low ubiquity and low corporate diversification. For example, sectors corresponding to Electrical Engineering are predominantly located in this quadrant.
+
+% \paragraph{Correlation Between Ubiquity and TCI.}
+On the other hand, Panel C of Fig.~\ref{fig:scatter} reveals a moderate positive correlation between $K_{T,0}$ and TCI (Pearson correlation coefficient $r=0.594$). 
+In this context, Electrical Engineering exhibits low ubiquity, low average diversity, and low TCI values, indicating that corporations in this field tend to concentrate their innovation efforts within narrowly defined domains.
+
+% \paragraph{Detailed Analysis by IPC Classification.}
+The relative positioning of technologies was further confirmed using a finer classification based on International Patent Classification (IPC) classes (SI Fig.~\ref{fig:persector}). Focusing on the five sectors defined by Schmoch \cite{Schmoch2008}, we observe that in four sectors the relationship between ubiquity and average diversity is either negligible or moderately correlated. Notably, the Electrical Engineering sector exhibits a clear positive correlation between ubiquity and TCI (Pearson correlation coefficient $r=0.748$), indicating that among corporations specializing in Electrical Engineering, some produce a comprehensive range of ubiquitous technologies while others focus on rare, specialized ones.
+
+% \paragraph{Contrasting Chemical and Pharmaceutical Sectors.}
+In contrast to Electrical engineering technologies, Chemistry and Pharmaceuticals technologies mostly exhibit high TCI and the high average diversity. 
+These sectors are characterized by rarity and high sophistication and are typically developed by more diversified corporations. 
+Moreover, corporations in these domains are connected not only to fields with low ubiquity but also to those that are more common (e.g., Biotechnology, Analysis of Biological Materials, and Measurement as shown in the right quadrant of Panel C in Fig.~\ref{fig:scatter}). 
+A detailed examination reveals a slight negative correlation between ubiquity and average diversity (SI Fig.~\ref{fig:persector}), suggesting that in sectors with high technological complexity, corporations with more comprehensive technological portfolios tend to produce rare technologies. 
+Furthermore, the corresponding IPC classes corresponding to Biotechnology and Measurement, show high TCI values in fields related to the production of sugar and yeast (C13, A21, C12), drug discovery (A61), and the preservation and management of these technologies (C07, A23). These findings are consistent with the socio-technical context of the period, particularly reflecting the emergence of drug discovery technologies in the 1980s and 1990s \cite{Sakakibara2014,Nakamura2022}. Moreover, the significant roles of food chemistry and biotechnology during the 1990s and 2000s underscore their contribution to the development of additives that enabled safer food preservation and processing not only in Japan but globally \cite{Bhatia2018,Murakami2024}.
+
 
 % Example text under a subsection. Bulleted lists may be used where appropriate, e.g.
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.75]{Figs/Fig2.eps}
-    \caption{The Pearson correlation between the degree centrality \( k_{t,0} \) of Schmoch technology field node \( t \) and the average nearest neighbor degree \( k_{t,1} \), with a correlation coefficient of 0.064.(a) Similarly, The Pearson correlation between the degree centrality \( k_{t,0} \) of technology field node \( t \) and the Technology Complexity Index (TCI), scaled from 0 to 100, with a correlation coefficient of 0.594. (b) In both figures, the gray dashed lines indicate the mean values. Each data point is color-coded according to the five classifications defined by Schmoch. [Reference]
-    All figures were created using Python 3.10 and the matplotlib (3.4.3) package (https://matplotlib.org).}
+    \includegraphics[scale=0.75]{Figs/Fig1.eps}
+    \caption{(A) The legend of the five classifications defined by Schmoch \cite{Schmoch2008}, along with an explanation of the technology codes used in (B), (C), and (D).
+    (B) Pearson correlation between \(k_{T,0}\) and \(k_{T,1}\) (\(r=0.064\)).
+    (C) Pearson correlation between \(k_{T,0}\) and TCI (\(r=0.594\)).
+    (D) Pearson correlation between TCI and \(k_{T,1}\) (\(r=0.316\)).
+    In (B) through (D), the black lines indicate the mean values of \(k_{T,0}\) and \(k_{T,1}\), and \(\text{TCI} = 0\) is also shown with a black line. Each dot is color‐coded according to (A). The TCI values are unscaled.
+    }
     \label{fig:scatter}
 \end{figure}
 
+\subsection*{Stability and Finer technological trends}
 
-\subsection*{More finer technological trends}
+Traditional regional approach measures complexity as a relative index that reflects the outcomes of agglomeration economies at the country or city level \cite{hartmann2024economic} and relates to spatial inequality. 
+This measure is strongly affected by the degree of urbanization in Japan. 
+However, the regional approach depends on the aggregation level of regions or technologies \cite{Hidalgo2021}. 
+When the HH algorithm is applied to patent data, finer classifications such as IPC classes lead to unstable behaviour of the complexity index when compared with coarse classifications such as the Schmoch system \cite{PintarEssletzbichler2022}. 
+This instability applies to the evaluation of regional complexity and also occur in the evaluation of technology complexity owing to the symmetry of the bipartite network.
+
+In this study we compare the TCI from the regional approach with the TCI from the corporate approach. We examine the differences in inequality and instability of complexity between regions and corporations by comparing results obtained with coarse and fine classifications (Panel A in Fig.~\ref{fig:detailtci}).
+
+The scaled TCI of the Schmoch system shows that in the regional approach 26 out of 35 classes fall in the range of 75 to 100. 
+In the corporate approach, only 15 classes lie in that range, whereas the other classes display greater differences among technologies in the regional approach. 
+This difference in heterogeneity stems from the corporate approach being able to characterize each technology in a more detailed manner. The HH algorithm defines ubiquity as the degree of a technology node and this measure depends on the number of paired nodes. The regional approach has region nodes numbering in the tens up to fewer than 300 (for example the 47 prefectures). The corporate approach has corporation nodes numbering from one thousand to several ten thousand. The iterative calculation of TCI can therefore reflect a wider range of ubiquity.
+
+The difference between the approaches also appears when using a finer classification. When the classification becomes more detailed and the number of technology nodes increases, the regional approach cannot define ubiquity sufficiently. In the case of Civil engineering the variance of TCI values for IPC classes corresponding to the same Schmoch class is larger than that for the corporate approach. The larger difference between the TCI values of the coarse classification and those of the finer classification indicates a greater instability in the evaluation for the regional approach. A Wilcoxon signed rank test shows that the distribution of residuals between the TCI values of the Schmoch and IPC classes is significantly different (p value = 7.225e-14) and that the residuals for the corporate approach are smaller than those for the regional approach (Panel B in Fig.~\ref{fig:detailtci}).
+
+These stable and detailed trends are observed not only over a 30 year period but also in evaluations over shorter periods such as 5 years. For example, in the IPC classes corresponding to Food chemistry, the trend of high TCI is stable in the 2000s. Technologies with high scores (for example C13 and A21) and those that decline (for example A23 and A01) are captured in a consistent manner (SI Fig.~\ref{fig:bump}).
+
+The corporate approach also permits a relative evaluation of technologies in a specific region that was not possible with the regional approach. The regional approach evaluates each region only by whether it possesses a technology that has been relatively evaluated at the national level. The corporate approach can assess which technology is important within that region. For example, the relationship between the TCI of each IPC class for three prefectures with many corporations and the TCI for all corporations shows that Aichi, the prefecture where a lot of co-manufacturing companies, such as Toyota, exhibits a trend different from Tokyo and Osaka (Fig.~\ref{fig:prefcompare}). In Aichi, the technologies with a relatively high evaluation even though the overall evaluation is low are the strengths of corporations located in that region.
+
+
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.75]{Figs/Fig3.eps}
-    \caption{The TCI scores of IPC first Class (N=124) and Schmoch (N=35) for both prefectures and corporations.(a) the distribution of the absolute differences between the Technology Complexity Index (TCI) of IPC and the TCI of Schmoch. The scores have been scaled to values ranging from 0 to 100. Each IPC is plotted against the corresponding Schmoch axis, and in cases of many-to-many correspondences, each pair is plotted individually.
-    the distribution of the absolute differences between the Technology Complexity Index (TCI) of IPC and the TCI of Schmoch. (b)
-    All figures were created using Python 3.10 and the matplotlib (3.4.3) package (https://matplotlib.org).}
+    \includegraphics[scale=0.65]{Figs/Fig2.eps}
+    \caption{(A) The TCI scores of IPC first Class (N=124) and Schmoch (N=35) for both prefectures and corporations. The scores have been scaled to values ranging from 0 to 100. Each IPC is plotted against the corresponding Schmoch axis, and in cases of many-to-many correspondences, each pair is plotted individually. (B) The distribution of the absolute differences between TCI of IPC and of Schmoch systems.}
     \label{fig:detailtci}
 \end{figure}
-Fig.\ref{fig:detailtci}a presents the Technology Complexity Index (TCI) for two technology classifications using both the conventional regional approach and the corporate approach introduced in this study. 
-To calculate the TCI for the regional approach, a bipartite graph of prefectures and technological fields was constructed using the addresses of corporations.
-
-In the conventional regional approach, the instability of evaluations when using fine classifications, such as IPC classes, has been noted for the regional complexity index, which is paired with the TCI. 
-This instability is likely attributable to the symmetry of the bipartite graph, which similarly affects the calculation of the TCI. Specifically, as shown in \ref{fig:detailtci}a, certain technology fields, such as Transport technology, receive markedly different evaluations depending on the classification used, despite belonging to the same technological domain. 
-In contrast, the TCI calculated for corporations demonstrates consistent trends when using finer classifications like IPC compared to the Schmoch classification, indicating greater evaluation stability. 
-This consistency is further supported by Fig.\ref{fig:detailtci}b, which displays the residuals between the TCI values derived from IPC classes and those from the Schmoch classification, alongside the results of statistical tests for distribution differences.
-
-One possible explanation for this stability in the corporate approach is its ability to quantify ubiquity more precisely than the regional approach. 
-In the HH algorithm, ubiquity is defined by the degree of the technological field node. 
-However, the range of ubiquity values depends on the number of nodes in the corresponding pair.
-
-\subsection*{Over time variation of finer trends}
 
 
-\section*{Discussion}
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.35]{Figs/Fig3.eps}
+    \caption{Three scatter plots arranged in a single row compare the Corporate TCI in Japan (vertical axis) to the Corporate TCI in Tokyo (left panel), Osaka (middle panel), and Aichi (right panel) on the horizontal axis. Each axis is scaled from 0 to 100, and the black points represent data points for each classification or entity. The red dashed line indicates the diagonal (y = x).}
+    \label{fig:prefcompare}
+\end{figure}
 
+\section*{Discussion} \label{section:Discussion}
 % The Discussion should be succinct and must not contain subheadings.
-In this study, we attempted for the first time in Japan to apply the Hidalgo-Hausmann (HH) algorithm to corporations and all patent technology fields, aiming to identify complex and key technological areas. 
-The application of the HH algorithm at the corporate level revealed high complexity in the pharmaceuticals and chemistry sectors. This finding may reflect the societal conditions of the time, known as the dawn of the pharmaceutical industry in Japan, indicating a period of significant technological advancement and innovation in these fields.
 
-While some argue that the evaluation results of these technological fields converge due to their classification methods, our corporate approach achieved stable evaluations even when using fine classifications. 
-This contrasts with the traditional regional approach, which typically obtains stable evaluations only with coarse classifications. 
-The ability of the corporate approach to provide consistent results at a finer granularity suggests its potential to offer more accurate and detailed insights into technological trends within limited spaces, such as specific regions or industries.
+In this study, we applied TCI for the first time in Japan, targeting corporations and all patent technology fields, to identify sophisticated technological areas that are key to fostering innovation. Our findings highlighted high complexity in the pharmaceuticals and chemistry sectors, which may reflect the societal conditions of the period, often referred to as the dawn of the pharmaceutical industry in Japan. This era was marked by significant technological advancements and innovation in these fields.
+While it has been argued that the evaluation results of these technological fields may converge due to their classification methods \cite{Hidalgo2021}, the corporate-level approach achieved stable evaluations even when using fine classifications. This contrasts with the traditional regional approach, which often relies on coarse classifications to maintain stability. The ability of the corporate approach to deliver consistent results at a finer granularity suggests its potential to provide more accurate and detailed insights into technological trends within specific regions, industries, or other limited scopes.
+Despite the above findings and the advances, there remain areas where the corporate approach must demonstrate its robustness and usefulness in ways that the traditional regional method has successfully addressed. 
+First, capturing changes in technological trends effectively requires not only long-term analyses but also short-term evaluations, which are essential for identifying emerging fields and shifts in innovation patterns. However, such analyses introduce challenges in data processing. For instance, the calculation of the TCI is sensitive to the number of patents by corporation and technological field in each period. Shortening the aggregation period may lead to the inclusion of corporations with a minimal number of patents, potentially introducing noise into the TCI calculations and affecting the stability of results \cite{PintarEssletzbichler2022}.
+This issue stems from a limitation in the HH algorithm, which evaluates network complexity based on node degrees in a bipartite graph. The reliance on node degrees relaxes the conditions for link formation, particularly when dealing with sparse data. To address this limitation, several mathematical and algorithmic improvements have been proposed. For example, the Fitness--Complexity (FC) algorithm by Tacchella et al. \cite{Tacchella2012} incorporates non-linear iterative calculations to better account for the structure of the network. This algorithm has demonstrated strong correlations with HH--based indicators while offering improved robustness in evaluating regional and corporate competitiveness \cite{Wu2016,Albeaik2017}.
+By integrating such enhancements into this approach, the analysis could derive deeper insights into Japan's industrial technology landscape. 
+Future work should explore not only the application of these improved methods but also comparisons of the insights obtained through the corporate approach with results from other countries. Such comparative analyses would help elucidate the distinctive characteristics of Japanese corporations in the context of intensifying global competition.
 
-However, there remains room to demonstrate the usefulness of this approach in ways that the traditional regional approach has addressed. Capturing changes in technological trends requires not only long-term but also short-term analyses. 
-Undertaking such analyses necessitates solving certain data processing challenges. 
-Specifically, the calculation of the TCI depends critically on the number of patents by corporation and technology field in each period. 
-Shortening the aggregation period may result in the emergence of corporations with a small number of patents which could introduce noise into the TCI calculations and affect the stability of the results.
+Second, the ad-hoc nature of certain data processing steps detailed in Data\ref{subsection:Data} section, such as the exclusion of corporations with few patents, highlights the need for more systematic and scalable solutions. Addressing these issues through algorithmic refinements rather than manual interventions could enhance the accuracy and reliability of the results.
 
-These limitations may be more effectively addressed through algorithmic improvements rather than ad-hoc measures. 
-In the context of complex economics, the HH algorithm which is a linear method dependent on node degrees within the network has been subject to various criticisms and improvements. 
-By integrating similar enhancements into our approach, we expect to derive new insights into Japan's industrial technology landscape. 
-Future work will focus on comparing the insights obtained through our method with results from applying the corporate approach to patent data from other countries. 
-Through this comparative analysis, we aim to contribute to elucidating the characteristics of domestic corporations amid intensifying international competition.
-
-In this study, we conducted the first application of the Technological Complexity Index (TCI) in Japan to identify sophisticated technological fields that are key to fostering innovation. Our findings revealed high sophistication in the pharmaceuticals and chemistry sectors, which may reflect the societal conditions of the time, such as the dawn of the pharmaceutical industry. While some argue that the evaluation results of these technological fields converge due to their classification methods [7], our corporate approach achieved stable evaluations even when using finer classifications or different periods, in contrast to the traditional regional approach. This suggests its potential to offer more accurate and detailed insights into technological trends within limited scopes, such as specific regions or industries. However, there remains room to demonstrate the robustness and usefulness of this approach in ways that the traditional regional method has addressed. Therefore, future work should focus on not only advanced but also empirical analyses, such as comparisons with other countries, verification targeting unexamined specific sectors, and validation of relationships with other innovation indicators.
-Also, one of the remaining challenges is the ad-hoc processing of patent data detailed in the previous sections. As we exclude corporations with a small number of patents, it is well argued that fields or corporations with few patents could introduce noise into the accuracy of calculating the TCI and affect the stability of the results [32]. This issue stems from a limitation in the HH algorithm, which evaluates based on the degrees of a bipartite graph, leading to a relaxation of the conditions for link formation. To address this limitation, several mathematical and algorithmic improvements have been proposed [33-35]. In particular, the Fitness-Complexity (FC) algorithm by Tacchella et al. [33], which yields indicators strongly correlated with those obtained by the HH algorithm and regional competitiveness, is widely used in corporate-level analyses. By integrating these enhancements into our approach, we expect to derive new insights into the Japanese industrial technology landscape. Thus, as a cornerstone, this research is expected to be indispensable for elucidating the characteristics of the domestic industry in Japan in an era where AI is on the rise, which is essential for industrial policy.
+Ultimately, this study represents a cornerstone for understanding the characteristics of domestic industries in Japan through the lens of technological complexity. By identifying key technological areas, the findings offer valuable insights that can inform industrial policies and strategies, especially in an era marked by rapid advancements in artificial intelligence and increasing international competition.
 
 
-\section*{Methods}
+\section*{Methods} \label{section:Methods}
+\subsection*{Data} \label{subsection:Data}
+The dataset used in this study consists of registered patents applied to the Japan Patent Office (JPO) over a 30-year period from fiscal 1981 to 2010. The data comprises detailed records of 3,189,536 patents filed by 64,622 corporations. Patent records follow the International Patent Classification (IPC) system and are further organized according to the Schmoch classification \cite{Schmoch2008}. 
 
-% Topical subheadings are allowed. Authors must ensure that their Methods section includes adequate experimental and characterization data necessary for others in the field to reproduce their work.
-% As Pintar et al.(2022) noted, it is recognised that the use of raw patent counts as measures of innovative output can be problematic because patents' value and importance vary extremely. 
-% To remedy this, scholars have analysed the relation of certain additional information that is contained in patent documents with the social and economic value of patents.
+The Schmoch system aggregates IPC codes into 35 distinct technological fields, ensuring balanced class sizes and technological consistency. The Schmoch grouping has received widespread application in previous studies \cite{PintarScherngell2022,Balland2018,Whittle2019}.
+Regarding how to utilize a patent to measure contribution, traditional approaches have relied on raw patent counts to measure technological contributions in various fields \cite{Balland2016,Balland2018,PintarScherngell2022,Pinheiro2022,Whittle2019,Jun2023,Abay2024}. However, as highlighted by Pintar et al.\ \cite{PintarScherngell2022}, simple counts may overestimate contributions when a patent involves multiple corporations or spans several technological fields.
+To address this issue, the primary IPC class of each patent is mapped onto the corresponding Schmoch field, and the value of a patent is fractionally allocated by dividing it equally among all associated corporations and among all technological fields to which it is attributed. This procedure prevents overestimation of contributions from a corporation or a field due to multiple co-ownership or cross-field classification.
+Although the raw dataset spans a wide range of patenting activity, most corporations show only minimal engagement such as holding a single patent in one field (SI Fig. \ref{fig:patentdistribution}). 
+Low-activity cases may distort link formation in network analyses based on the HH algorithm \cite{PintarScherngell2022}. 
+For this reason, a filtering criterion based on the distribution of patent counts per corporation is therefore applied, retaining only the top 3\% in terms of patent output. After filtering, the dataset consists of 2,485,027 patents from 1,938 corporations, representing approximately 93\% of the original patent count.
 
-%% この期間は日本にとってどんな期間だったか、
+In order to quantify specialization in technological fields, computation of the revealed technological advantage (RTA)\cite{Soete1987} index which builds on the revealed comparative advantage framework\cite{Balassa1965} is necessary.
+The RTA index for a given corporation in a specific technological field measures the ratio between the share of patents held by corporation \(C\) in technology \(T\) and the share of patents in technology \(T\) among all corporations.
+Let \(W_{C,T}\) denote the weighted patent count for corporation \(C\) in technology \(T\), where each patent is assigned a weight computed as one divided by the product of the number of associated corporations and the number of technological classes assigned to the patent.
+The numerator of the RTA index captures the fraction of patent activity devoted to technology \(T\) for corporation \(C\). 
+Similarly, the denominator reflects the overall share of patent activity in technology \(T\) among all corporations, computed as the sum of \(W_{CT}\) over all corporations divided by the sum of \(W_{CT}\) over all corporations and technologies.
+The RTA index is thus given by
 
-%% 特許分類にはIPCを35分類に再編したもの（Schmoch）を用いる
-% - These patents encompass a wealth of information, including the identity of the applicant, whether individual or corporate, and their technological domains. 
-% For patent classification, this study employs the technological classification proposed by Schmoch (2008), which maps International Patent Classification (IPC) codes onto 35 technological fields.
-% We converted the primary IPC classifications onto broader Schmoch categories.\\
+\begin{center} \label{eq1}
+    \begin{equation}
+    \mbox{RTA}_{CT} = \frac{W_{CT}}{\sum_{T} W_{CT}} \Bigg/ \frac{\sum_{C} W_{CT}}{\sum_{CT} W_{CT}}~.
+    \end{equation}
+\end{center}
+We consider that RTA index values of 1 or greater indicate that corporation \(C\) holds a prominent technological advantage in technology \(T\). Based on this threshold, a binary adjacency matrix of the bipartite network \(M_{CT}\) is defined by
 
-% 特許数集計と重み処理
-%% 関連文献とは異なり、法人にあたる特許権者の技術分野ごとの特許数を求める
-% - Unlike related literature that primarily aggregated data based on the applicant's address and patent classification, 
-% this study focuses on corporate patent holders, aggregating data according to patent classification for each corporation.
-%% 各法人の技術分野ごとの特許数を求めるうえで、共同出願と複数の技術分野にまたがる特許を考慮する必要がある（関連研究と同様にfractionという言葉を使いたい）
-% - we fractionally split individual patents 
-
-% - the granularity of the patent classification used and the method for adjusting the value of each patent. 
-% - First, A common approach in related studies was adopted, dividing each patent by the number of classifications it falls under. \\
-% - Secondly, unique to this study and not addressed by Pintar et al., 
-% was the division of each patent by the number of associated patent holders, 
-% an essential element given our focus on corporate aggregations.
-
-% 特許数フィルタ
-%% Pintar et al.をはじめとして地域-技術分野グラフから地域の複雑性指標を求めている例では、極端に少ない特許数が指標の算出に影響を与えるとしている。
-
-
-%% これは、～～ことによるものだと考えられ、二部グラフの対称性より、技術の複雑性指標を求めるうえでも同様のことがいえる。
-% - This may cause the inacculately measurement of the TCI. 
-%% 実際、より細かい粒度で集計を行っている本研究でも30年間に1つといった極端に少ない特許数を持つ法人がいくつか観測された。
-% - Despite the comprehensive 30-year span of collected data, 
-% it is noted that some corporations hold significantly fewer patents.
-
-%% そこで私たちは（特許数が少ない法人を除くために）特許数上位3%に絞り込む処理を行った
-% To mitigate this, we narrowed to corporations ranked in the top 3\% by patent count, 
-
-% 簡単なデータの記述統計
-%% 最終的に対象となったのは1929の法人が35のSchmochにもつ2,800,000件ほどの特許だった。これは全ての法人が持つ特許の約91%に相当する量である。
-
-
-\subsection*{The bipartite network}
-% Hidalgo and Hausmann (2009)は国と製品 → Balland and Rigby (2017)は地域と技術分野 → 本研究は法人と技術分野
-% これはIntroductionに入れた方が良い?
-Building upon the HH algorithm introduced by Hidalgo and Hausmann (2009)\cite{hidalgo2009eci} for analyzing economic complexity in countries and products, % method of reflectionは使った方がよさそう
-Balland and Rigby (2017) have extended this foundational approach to measure the innovation landscape of U.S. regions and technological fields using the Technological Complexity Index (TCI). 
-Here, we applied this method to assess Japanese corporations and technology fields. 
-
-% ここの繋がりがちょっと怪しい
-% ここからは、RTAと隣接行列の説明
-% 「TCIとTCIは二部グラフから求められる」から入った方が良いかも
-% RTAはSoete(1987)によって定義されたものという説明が必要
-% 閾値はSupporting informationに書く
-Currently, there is an active ongoing discussion on the best way to extract information about the (economic) complexity of spatial units from the bipartite network that connects these units to products or knowledge subsets that they produce. In the context of economic complexity of nations, Tacchella et al. (2012) introduced a non-linear iterative algorithm that builds on a similar theoretical basis as Hidalgo and Hausmann (2009) but emphasises that the complexity of products should be more strongly limited by the least fit country that is able to export it. This approach termed Fitness-Complexity Method was shown to produce fitness scores that are strongly associated with economic (Cristelli et al., 2015; Tacchella et al., 2012) and scientific (Cimini et al., 2014) competitiveness of countries. Subsequent studies analysed the mathematical properties (Wu et al., 2016) and conditions for convergence of this algorithm (Pugliese et al., 2016), which revealed some limitations. The convergence of the algorithm to non-zero values for nodes of the network depends highly on the specific network structure. This is expected to be even more problematic when considering the network of technological portfolios than that of trade (Pugliese et al., 2016). Moreover, the strong limiting factor of the least fit exporting country to the complexity of products can lead to an overemphasis on niche products or technological classes. Hence, knowledge subsets in which only very few regions are specialised in could be identified as complex (and consequently their producing regions), even though they are not inherently difficult to produce but only rare (Morrison et al., 2017). For these reasons we focus on the method described in detail above. 
-To establish the framework for our analysis, we first determine the Revealed Technological Advantage (RTA) index for each corporation within various technology fields.
-The RTA is reflective of a corporation's patent activity in relation to the national standard, and is given by:
-This study initiates its analysis by computing the Revealed Technological Advantage (RTA) index for corporations across various patent classifications, reflecting their patent holdings. 
-The RTA index, conceptualized as a specialization coefficient by Soete, builds upon Balassa's Revealed Comparative Advantage (RCA) framework. For a given corporation \(c\) within a patent classification \(f\), the RTA index, denoted as \(RTA_{cf}\), is mathematically articulated through the equation:
-
-\[
-RTA_{ct} = \frac{X_{ct}}{\sum_{t} X_{ct}} / \frac{\sum_{c} X_{ct}}{\sum_{ct} X_{ct}},
-\]
-
-where \(X_{ct}\) signifies the quantity of patents held by corporation \(c\) in category \(t\). The fraction \(\frac{X_{ct}}{\sum_{t} X_{ct}}\) calculates corporation \(c\)'s patent share in classification \(t\), and \(\frac{\sum_{c} X_{ct}}{\sum_{ct} X_{ct}}\) calculates the overall share of patents in classification \(t\) among all corporations. 
-Like the RCA index, an RTA index value exceeding a predefined threshold indicates a corporation's technological preeminence in a specific patent classification.
-
-Following the calculation of the \(RTA_{ct}\) matrix, we proceed to construct an adjacency matrix \(M_{ct}\), which serves as the foundation for an unweighted, undirected bipartite graph. This graph is structured around two distinct node types: patent holders and patent classifications, with edges signifying a patent holder's technological dominance within a given classification. In alignment with Soete's methodology, we apply a threshold value of \(R=1\) to discern this dominance:
-
-\[
-M_{ct} = 
+\begin{center}
+\begin{equation} \label{eq2}
+M_{CT} = 
 \begin{cases} 
-0 & \text{if } RTA_{ct} < R \\
-1 & \text{otherwise}
+1 & \text{if } \mbox{RTA}_{CT} \geq 1, \\
+0 & \text{otherwise}.
 \end{cases}
-\]
-\subsection*{Measuring Technological Complexity}
+\end{equation}
+\end{center}
 
-This bifurcation facilitates the definition of two critical metrics: the diversity (\(k_{c,0}\)) of a corporation \(c\) and the ubiquity (\(k_{f,0}\)) of a patent classification \(f\), calculated as:
 
-\[
-k_{c,0} = \sum_{t}{M_{ct}},\quad k_{t,0} = \sum_{c}{M_{ct}}.
-\]
+\subsection*{Technological Complexity} \label{TCI}
+The binary matrix \(M_{CT}\) forms the two metrics which characterize each node in the bipartite network by the sum of connections, known as degree centrality. The diversity of corporations \(K_{C,0}\) quantifies the number of technologies in which a corporation is specialized, and indicated by $M_{CT}$. 
+Similarly, the ubiquity of technologies \(K_{T,0}\) represents the number of corporations that exhibit a technological advantage in a given field. These quantities are computed as
 
-In the realm of network science, the parameter \(k_{c,0}\) quantifies the degree centrality for corporate nodes, where higher figures indicate a rich complexity and specialization in technology. Conversely, \(k_{t,0}\) assesses the degree centrality for patent classification nodes, with lower figures denoting scarce, highly specialized technologies. 
-By exploiting the graph's symmetric properties, we iteratively calculate the average value of adjacent nodes to articulate the distinctive attributes of each corporation and patent classification, where \(N\) denotes the iteration count:
+\begin{equation}\label{eq3}
+\begin{aligned}
+K_{C,0} = \sum_{T} M_{CT},  
+K_{T,0} = \sum_{C} M_{CT}~.
+\end{aligned}
+\end{equation}
 
-\[
-k_{c,N} = \frac{1}{k_{c,0}} \sum_{t} (M_{ct} \cdot k_{t,N-1}),\quad k_{t,N} = \frac{1}{k_{t,0}} \sum_{c} (M_{ct} \cdot k_{c,N-1}).
-\]
+Higher diversity values indicate corporations with broad technological capabilities, while lower ubiquity values signify that the technologies are rare. 
+Through calculating these two characteristics of adjacent nodes iteratively, the diversity and ubiquity of each node is updated as
 
-Next, by substituting equation (5) into equation (4), we obtain equation (6):
+\begin{equation}\label{eq4}
+K_{C,N} = \frac{1}{K_{C,0}} \sum_{T} M_{CT}\, K_{T,N-1},
+\end{equation}
 
-\[
-k_{c,N} = \frac{1}{k_{c,0}} \sum_{t} \left[ M_{ct} \cdot \frac{1}{k_{t,0}} \sum_{c'} \left( M_{c't} \cdot k_{c',N-2} \right) \right] = \sum_{c'} k_{c',N-2} \cdot \sum_{t} \frac{M_{ct} \cdot M_{c't}}{k_{c,0} \cdot k_{t,0}} = \sum_{c'} M_{c'c} \cdot k_{c',N-2}
-\]
+\begin{equation} \label{eq5}
+K_{T,N} = \frac{1}{K_{T,0}} \sum_{C} M_{CT}\, K_{C,N-1}.
+\end{equation}
 
-Here, \(\widetilde{M}_{tt'}\) which is the adjacency matrix representing the projection of the bipartite graph is defined as:
+Here, the metric \(K_{T,1}\) represents the average nearest neighbor degree for technology nodes and it reflects the average diversity of corporations connected to a given technology.
+Substituting Eq. \ref{eq4} into Eq. \ref{eq5} yields
 
-\[
-\widetilde{M_{tt'}} = \sum_{c}{\frac{M_{ct}M_{ct'}}{k_{c,0}k_{t,0}}}
-\]
+\begin{equation} \label{eq6}
+K_{T,N} = \sum_{T'} \widetilde{M}_{TT'} K_{T',N-2}
+\end{equation}
 
-Equation (6) holds when \(k_{c,N} = k_{t',N-2} = 1\), that is, for the eigenvector corresponding to the largest eigenvalue of \(\widetilde{M}_{tt'}\). 
-Therefore, this eigenvector, being uniform in component value, is not mathematically informative. 
-Conversely, the eigenvector corresponding to the second largest eigenvalue captures the greatest amount of variance. 
-Thus, the Technological Complexity Index (TCI) is defined as follows:
+where \(T'\) denotes a technological field, and $\widetilde{M}_{TT'}$ is defined as
 
-\[
-TCI = \frac{\vec{T}-<\vec{T}>}{\text{stdev}(\vec{T})}
-\]
+\begin{equation} \label{eq7}
+\widetilde{M}_{TT'} = \sum_{C} \frac{M_{CT}\, M_{CT'}}{K_{C,0}\, K_{T,0}}~.
+\end{equation}
 
-where \(\vec{T}\) is the eigenvector corresponding to the second largest eigenvalue of \(M_{tt'}\), \(<\vec{T}>\) is the mean of its components, and \(\text{stdev}(\vec{T})\) is the standard deviation of its components. 
-Additionally, the TCI of a region is interpreted to be higher when the region has a high diversity and specializes in patent classifications that are less ubiquitous, indicating that the region possesses advanced technologies.
+Eq. \ref{eq6} is satisfied when  \(K_{T,N} = K_{T,N-2} = 1\), which corresponds to the eigenvector associated with the largest eigenvalue of the stochastic matrix \(\widetilde{M}_{T,T'}\). 
+Since this eigenvector is a vector of ones and not informative, the eigenvector corresponding to the second largest eigenvalue of \(\widetilde{M}_{TT'}\) captures the greatest variance among technology fields \cite{Hidalgo2021, Mealy2019}.
+Thus, TCI is given by
+\begin{equation} \label{eq8}
+TCI = \frac{\widetilde{T} - \langle \widetilde{T} \rangle}{\text{stdev}(\widetilde{T})},
+\end{equation}
 
-\subsection*{Data}
-% 使ったデータの説明
-%% Japan Patent Office(JPO)より、1981年度から2010年度に出願された登録済み特許を用いる
-Following previous research, we utilize the patent data to map the technological complexity in Japanese corporations.
-Specifically, we retrieve the patent registration applied to the Japan Patent Office (JPO) in the period of the fiscal years 1981 to 2010.
-For our analysis we use the technological classification proposed by Schmoch (2008) which maps the International Patent Classification (IPC) classes onto 35 fields. 
-This classification aims to strike a balance between homogeneity in terms of class sizes and technological homogeneity within each technological field and has been used in related literature with comparable datasets (Balland et al., 2019; Whittle, 2017). 
-To construct graphs such as Fig. \ref{fig:bipartite}, it is necessary to calculate how much value each corporation produces in various technological fields. 
-Traditional approaches have used the raw number of patents, however, as pointed out by Pintar et al.(2022), the value of patents can vary significantly, making this method problematic. 
-Specifically, when a single patent is jointly held by multiple corporations or belongs to multiple technological fields, there is a risk of overestimating the value produced by a corporation. 
-To address this issue, we mapped the first IPC class representing the primary field of each patent—to the Schmoch classification system. We then aggregated the data by dividing each patent's value by the number of associated corporations and the number of technological fields it encompasses.
-
-At this stage, the dataset comprised 2.5 million patents held by 80,000 corporations. Despite the extensive 30-year aggregation period, we observed corporations with a minimal number of patents, such as a single patent in one field. 
-Including these corporations could overly simplify the conditions for link formation in the graph construction required by the HH algorithm, which is why previous studies have excluded them. 
-Based on the distribution of patent counts per corporation, we filtered the dataset to include patents held by the top 3\% of corporations.
-The final dataset consisted of 2.48 million patents held by 1,938 corporations, representing approximately 93\% of the patents before filtering.
+where \(\widetilde{T}\) represents the eigenvector corresponding to the second largest eigenvalue of \(\widetilde{M}_{TT'}\), and \(\langle \widetilde{T} \rangle\) is their mean and \(\text{stdev}(\widetilde{T})\) is their standard deviation.
 
 
 
@@ -271,8 +267,9 @@ The final dataset consisted of 2.48 million patents held by 1,938 corporations, 
 % \section*{Acknowledgements (not compulsory)}
 % Acknowledgements should be brief, and should not include thanks to anonymous referees and editors, or effusive comments. Grant or contribution numbers may be acknowledged.
 
-\section*{Author contributions statement}
-R.K. collected and analysed the data. All authors designed the research, wrote and reviewed the manuscript.
+\section*{Author contributions}
+H.I. collected the data and secured the funding. R.K. designed the study, conceived the main research idea, performed the analysis, and drafted the manuscript. Both H.I. and R.K. critically reviewed the results, contributed to the revisions of the manuscript, discussed the findings, and approved the final version of the manuscript.
+
 % Must include all authors, identified by initials, for example:
 % A.A. conceived the experiment(s),  A.A. and B.A. conducted the experiment(s), C.A. and D.A. analysed the results.  All authors reviewed the manuscript. 
 
@@ -281,97 +278,38 @@ R.K. collected and analysed the data. All authors designed the research, wrote a
 To include, in this order: \textbf{Accession codes} (where applicable); \textbf{Competing interests} (mandatory statement). 
 
 The corresponding author is responsible for submitting a \href{http://www.nature.com/srep/policies/index.html#competing}{competing interests statement} on behalf of all authors of the paper. This statement must be included in the submitted article file.
-
 % \begin{figure}[ht]
-% \centering
-% \includegraphics[width=\linewidth]{Figs/Fig1.eps}
-% \caption{Legend (350 words max). Example legend text.}
-% \label{fig:stream}
-% \end{figure}
-
-% \begin{table}[ht]
-% \centering
-% \begin{tabular}{|l|l|l|}
-% \hline
-% Condition & n & p \\
-% \hline
-% A & 5 & 0.1 \\
-% \hline
-% B & 10 & 0.01 \\
-% \hline
-% \end{tabular}
-% \caption{\label{tab:example}Legend (350 words max). Example legend text.}
-% \end{table}
-
-% Figures and tables can be referenced in LaTeX using the ref command, e.g. Figure \ref{fig:stream} and Table \ref{tab:example}.
-
-
-
-% Example text under a subsection. Bulleted lists may be used where appropriate, e.g.
-
-
-% 遍在性が低い特許分類の特徴
-% - 最も複雑な技術は次数がある程度低いが、必ずしも最低ではない。
-% - 逆に、当時広く生産されていなかったコンピューティングと電子技術のような次数が低いがTCIが低いような技術も見られた。
-
-
-% 複雑性が高い特許分類の特徴
-% - 高いTCI (>80) を持つ技術（Pharmaceuticals, Chemistry系）は、技術の量を表す特許数での評価では低～中程度の評価がなされている。また
-% - 中程度のTCI (60 < TCI < 80) を持つ技術（）。
-
-% - 特許数とKCIの関連（Appendix）
-%    - 特許とKCIのスピアマン順位相関: 。
-%    - 特許数が高いがTCIが低い技術（）。
-%    - TCIが特許数よりも高い技術（）。
-
-% table1: 全schmochの特許数、次数、TCI
-% \begin{table}[ht]
 %     \centering
-%     % \caption{Technological complexity of 35 fields}
-%     % \label{tab:tciofclass}
-%     \caption{\label{tab:tciofclass}Technological complexity of 35 fields}
-%     \begin{tabular}{lllll}
-%         \toprule
-%         % Technological Fields & Registration counts & Registration counts rank & Degree centrality & TCI \\
-%         Technological Fields & Registration counts & Registration counts rank & Ubiquity & TCI \\
-%         \midrule
-%         Pharmaceuticals & 13832.9 & 32 & 295 & 100.00 \\
-%         Organic fine chemistry & 49762.8 & 24 & 339 & 98.98 \\
-%         Food chemistry & 19104.5 & 30 & 295 & 96.06 \\
-%         Biotechnology & 18842.5 & 31 & 382 & 94.65 \\
-%         Macromolecular chemistry, polymers & 73747.9 & 18 & 302 & 93.81 \\
-%         Basic materials chemistry & 49795.8 & 23 & 474 & 91.40 \\
-%         Analysis of biological materials & 6928.9 & 34 & 372 & 89.64 \\
-%         Other special machines & 97979.1 & 11 & 504 & 85.77 \\
-%         Chemical engineering & 48801.5 & 25 & 606 & 85.56 \\
-%         Materials, metallurgy & 96984.9 & 12 & 351 & 83.89 \\
-%         Surface technology, coating & 70207.9 & 19 & 490 & 82.93 \\
-%         Environmental technology & 42906.5 & 27 & 439 & 82.82 \\
-%         Medical technology & 60318.6 & 21 & 292 & 80.15 \\
-%         Civil engineering & 112115.7 & 8 & 412 & 78.15 \\
-%         Thermal processes and apparatus & 67397.1 & 20 & 247 & 75.65 \\
-%         Machine tools & 91314.7 & 16 & 417 & 74.51 \\
-%         Mechanical elements & 74104.7 & 17 & 363 & 74.13 \\
-%         Handling & 94923.8 & 15 & 458 & 73.63 \\
-%         Engines, pumps, turbines & 95954.6 & 14 & 231 & 72.43 \\
-%         Textile and paper machines & 99098.6 & 10 & 272 & 70.26 \\
-%         Transport & 136292.5 & 7 & 247 & 68.73 \\
-%         Other consumer goods & 46413.0 & 26 & 286 & 68.22 \\
-%         Furniture, games & 96747.0 & 13 & 225 & 65.96 \\
-%         Measurement & 157480.2 & 4 & 481 & 59.25 \\
-%         Optics & 210773.1 & 2 & 170 & 54.33 \\
-%         Micro-structural and nano-technology & 758.3 & 35 & 117 & 53.54 \\
-%         Electrical machinery, apparatus, energy & 218723.6 & 1 & 356 & 51.73 \\
-%         Semiconductors & 139489.6 & 6 & 220 & 50.34 \\
-%         IT methods for management & 8681.0 & 33 & 249 & 35.62 \\
-%         Control & 53045.5 & 22 & 306 & 34.69 \\
-%         Audio-visual technology & 185920.5 & 3 & 210 & 17.97 \\
-%         Basic communication processes & 35135.6 & 29 & 181 & 13.76 \\
-%         Computer technology & 150378.0 & 5 & 208 & 9.58 \\
-%         Telecommunications & 100147.3 & 9 & 182 & 7.41 \\
-%         Digital communication & 36549.1 & 28 & 150 & 0.00 \\
-%         \bottomrule
-%     \end{tabular}
-% \end{table}
+%     \includegraphics[scale=0.5]{Figs/FigA.eps}
+%     \caption{The bibpartite network of corporations and technological fields. The edges represent that the corporations produce technologies in the fields.}
+%     \label{fig:bipartite}
+% \end{figure}
+\renewcommand{\thefigure}{S\arabic{figure}}
+\setcounter{figure}{0}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.75]{Figs/FigA2.eps}
+    \caption{The Pearson correlation between the degree centrality \( k_{T,0} \) of technology node \( T \) classified by IPC and the average nearest neighbor degree \( k_{T,1} \), and the Pearson correlation between the degree centrality \( k_{T,0} \) of technology field node \( T \) and TCI, scaled from 0 to 100. In both figures, the black lines indicate the mean values. Each data point is color-coded according to the five classifications defined by Schmoch\cite{Schmoch2008}.
+    All figures were created using Python 3.10 and the matplotlib (3.4.3) package (https://matplotlib.org).}
+    \label{fig:persector}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.85]{Figs/FigA3.eps}
+    \caption{The top 30 TCI rankings in five year increments from 1981 to 2010. IPC classes associated with Food Chemistry (C13, A21, A23, and A01) are highlighted in red.
+    All figures were created using Python 3.10 and the matplotlib (3.4.3) package (https://matplotlib.org).}
+    \label{fig:bump}
+\end{figure}
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[scale=0.75]{Figs/FigA1.eps}
+    \caption{The distribution of weighted patent counts (horizontal axis) for each corporation, with the cumulative distribution function (CDF) of their patents on the vertical axis. The black dashed lines on both axes indicate the excluded region, corresponding to the top 3\% of corporations that account for 93% of all patents.
+    The figure was created using Python 3.10 and the matplotlib (3.4.3) package (https://matplotlib.org).}
+    \label{fig:patentdistribution}
+\end{figure}
+
 
 \end{document}
