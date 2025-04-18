@@ -9,7 +9,6 @@
 \usepackage[T1]{fontenc}
 \usepackage{setspace}
 \doublespacing
-\doublespacing
 % \usepackage[dvipdfmx]{graphicx}
 
 \title{Technological Complexity Based on Japanese Patent Data}
@@ -114,12 +113,12 @@ Furthermore, the corresponding IPC classes corresponding to Biotechnology and Me
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.75]{Figs/Fig1.eps}
+    \includegraphics[scale=1.00]{Figs/Fig1.eps}
     \caption{(A) The legend of the five classifications defined by Schmoch \cite{Schmoch2008}, along with an explanation of the technology codes used in (B), (C), and (D).
     (B) Pearson correlation between \(k_{T,0}\) and \(k_{T,1}\) (\(r=0.064\)).
     (C) Pearson correlation between \(k_{T,0}\) and TCI (\(r=0.594\)).
     (D) Pearson correlation between TCI and \(k_{T,1}\) (\(r=0.316\)).
-    In (B) through (D), the black lines indicate the mean values of \(k_{T,0}\) and \(k_{T,1}\), and \(\text{TCI} = 0\) is also shown with a black line. Each dot is color‐coded according to (A). The TCI values are unscaled.
+    In (B) through (D), the black lines indicate the mean values of \(k_{T,0}\) and \(k_{T,1}\), and \(\text{TCI} = 0\) is also shown with a black line. Each dot is color‐coded according to (A).
     }
     \label{fig:scatter}
 \end{figure}
@@ -275,9 +274,9 @@ H.I. collected the data and secured the funding. R.K. designed the study, concei
 
 \section*{Additional information}
 
-To include, in this order: \textbf{Accession codes} (where applicable); \textbf{Competing interests} (mandatory statement). 
+% To include, in this order: \textbf{Accession codes} (where applicable); \textbf{Competing interests} (mandatory statement). 
 
-The corresponding author is responsible for submitting a \href{http://www.nature.com/srep/policies/index.html#competing}{competing interests statement} on behalf of all authors of the paper. This statement must be included in the submitted article file.
+% The corresponding author is responsible for submitting a \href{http://www.nature.com/srep/policies/index.html#competing}{competing interests statement} on behalf of all authors of the paper. This statement must be included in the submitted article file.
 % \begin{figure}[ht]
 %     \centering
 %     \includegraphics[scale=0.5]{Figs/FigA.eps}
@@ -289,25 +288,22 @@ The corresponding author is responsible for submitting a \href{http://www.nature
 
 \begin{figure}[ht]
     \centering
-    \includegraphics[scale=0.75]{Figs/FigA2.eps}
-    \caption{The Pearson correlation between the degree centrality \( k_{T,0} \) of technology node \( T \) classified by IPC and the average nearest neighbor degree \( k_{T,1} \), and the Pearson correlation between the degree centrality \( k_{T,0} \) of technology field node \( T \) and TCI, scaled from 0 to 100. In both figures, the black lines indicate the mean values. Each data point is color-coded according to the five classifications defined by Schmoch\cite{Schmoch2008}.
-    All figures were created using Python 3.10 and the matplotlib (3.4.3) package (https://matplotlib.org).}
+    \includegraphics[scale=2.50]{Figs/FigA2.eps}
+    \caption{The Pearson correlation between the degree centrality \( k_{T,0} \) of technology node \( T \) classified by IPC and the average nearest neighbor degree \( k_{T,1} \), and the Pearson correlation between the degree centrality \( k_{T,0} \) of technology field node \( T \) and TCI. In both figures, the black lines indicate the mean values. Each data point is color-coded according to the five classifications defined by Schmoch\cite{Schmoch2008}.}
     \label{fig:persector}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.85]{Figs/FigA3.eps}
-    \caption{The top 30 TCI rankings in five year increments from 1981 to 2010. IPC classes associated with Food Chemistry (C13, A21, A23, and A01) are highlighted in red.
-    All figures were created using Python 3.10 and the matplotlib (3.4.3) package (https://matplotlib.org).}
+    \caption{The top 30 TCI rankings in five year increments from 1981 to 2010. IPC classes associated with Food Chemistry (C13, A21, A23, and A01) are highlighted in red.}
     \label{fig:bump}
 \end{figure}
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.75]{Figs/FigA1.eps}
-    \caption{The distribution of weighted patent counts (horizontal axis) for each corporation, with the cumulative distribution function (CDF) of their patents on the vertical axis. The black dashed lines on both axes indicate the excluded region, corresponding to the top 3\% of corporations that account for 93% of all patents.
-    The figure was created using Python 3.10 and the matplotlib (3.4.3) package (https://matplotlib.org).}
+    \caption{The distribution of weighted patent counts (horizontal axis) for each corporation, with the cumulative distribution function (CDF) of their patents on the vertical axis. The black dashed lines on both axes indicate the excluded region, corresponding to the top 3\% of corporations that account for 93\% of all patents.}
     \label{fig:patentdistribution}
 \end{figure}
 
