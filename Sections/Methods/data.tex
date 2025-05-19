@@ -1,0 +1,37 @@
+\subsection*{Data}
+\phantomsection
+\addcontentsline{toc}{subsection}{Data}
+\label{subsection:Data}
+
+The dataset used in this study consists of registered patents applied to the Japan Patent Office (JPO) over a 30-year period from fiscal 1981 to 2010. The data comprises detailed records of 3,189,536 patents filed by 64,622 corporations. Patent records follow the International Patent Classification (IPC) system and are further organized according to the Schmoch classification \cite{Schmoch2008}. 
+
+The Schmoch system aggregates IPC codes into 35 distinct technological fields, ensuring balanced class sizes and technological consistency. The Schmoch grouping has received widespread application in previous studies \cite{PintarScherngell2022,Balland2018,Whittle2019}.
+Regarding how to utilize a patent to measure contribution, traditional approaches have relied on raw patent counts to measure technological contributions in various fields \cite{Balland2016,Balland2018,PintarScherngell2022,Pinheiro2022,Whittle2019,Jun2023,Abay2024}. However, as highlighted by Pintar et al.\ \cite{PintarScherngell2022}, simple counts may overestimate contributions when a patent involves multiple corporations or spans several technological fields.
+To address this issue, the primary IPC class of each patent is mapped onto the corresponding Schmoch field, and the value of a patent is fractionally allocated by dividing it equally among all associated corporations and among all technological fields to which it is attributed. This procedure prevents overestimation of contributions from a corporation or a field due to multiple co-ownership or cross-field classification.
+Although the raw dataset spans a wide range of patenting activity, most corporations show only minimal engagement such as holding a single patent in one field (SI Fig. \ref{fig:patentdistribution}). 
+Low-activity cases may distort link formation in network analyses based on the HH algorithm \cite{PintarScherngell2022}. 
+For this reason, a filtering criterion based on the distribution of patent counts per corporation is therefore applied, retaining only the top 3\% in terms of patent output. After filtering, the dataset consists of 2,485,027 patents from 1,938 corporations, representing approximately 93\% of the original patent count.
+
+In order to quantify specialization in technological fields, it is necessary to compute the revealed technological advantage (RTA)\cite{Soete1987} index which builds on the revealed comparative advantage framework\cite{Balassa1965}.
+The RTA index for a given corporation in a specific technological field measures the ratio between the share of patents held by corporation \(C\) in technology \(T\) and the share of patents in technology \(T\) among all corporations.
+Let \(W_{C,T}\) denote the weighted patent count for corporation \(C\) in technology \(T\), where each patent is assigned a weight computed as one divided by the product of the number of associated corporations and the number of technological classes assigned to the patent.
+The numerator of the RTA index captures the fraction of patent activity devoted to technology \(T\) for corporation \(C\). 
+Similarly, the denominator reflects the overall share of patent activity in technology \(T\) among all corporations, computed as the sum of \(W_{CT}\) over all corporations divided by the sum of \(W_{CT}\) over all corporations and technologies.
+The RTA index is thus given by
+
+\begin{center} \label{eq1}
+    \begin{equation}
+    \mbox{RTA}_{CT} = \frac{W_{CT}}{\sum_{T} W_{CT}} \Bigg/ \frac{\sum_{C} W_{CT}}{\sum_{CT} W_{CT}}~.
+    \end{equation}
+\end{center}
+We consider that RTA index values of 1 or greater indicate that corporation \(C\) holds a prominent technological advantage in technology \(T\). Based on this threshold, a binary adjacency matrix of the bipartite network \(M_{CT}\) is defined by
+
+\begin{center}
+\begin{equation} \label{eq2}
+M_{CT} = 
+\begin{cases} 
+1 & \text{if } \mbox{RTA}_{CT} \geq 1, \\
+0 & \text{otherwise}.
+\end{cases}
+\end{equation}
+\end{center}

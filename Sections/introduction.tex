@@ -1,0 +1,41 @@
+\section*{Introduction}
+\phantomsection
+\addcontentsline{toc}{section}{Introduction}
+\label{section:Introduction}
+
+% The Introduction section, of referenced text\cite{Figueredo:2009dg} expands on the background of the work (some overlap with the Abstract is acceptable). The introduction should not include subheadings.
+
+In the twenty first century, the global landscape of innovation has grown markedly competitive. 
+Nations around the world have designed diverse industrial policies to foster innovation, recognizing it as a vital factor for sustaining economic competitiveness. 
+Despite the abundance of strategies, one persistent difficulty to identify the key technologies and actors that drive innovation remains. 
+The difficulty arises from the fact that innovation is an intangible phenomenon emerging from an interconnected ecosystem composed of countries, cities, corporations, and technologies. 
+Understanding this complex environment requires methodologies capable of pinpointing the key elements that contribute to innovation amid intricate interdependencies.
+Yet policy makers still lack a clear data driven picture of which key technologies and which domestic corporations actually hold the rare and sophisticated capabilities that can reignite growth. Drawing on two point six million Japanese patent records this study pinpoints those technologies and actors by quantifying technological complexity at the corporate level for the first time.
+Globally, different regions and institutions have approached this challenge from various angles. 
+In the European Union, the concept of Smart Specialisation \cite{EC_SSP_nodate,Teixeira2022} has helped identify key domains for policy support, while in Japan, science and technology strategies continue to evolve \cite{NISTEP_nodate}. For supporting them, a range of indicators have been proposed to assess innovation across manufacturing, services, and advanced materials \cite{Taques2021,Farcal2023}. 
+Some studies focus on either national-level \cite{Teixeira2022,Abay2024}, regional-level \cite{Balland2018,PintarScherngell2022,Pinheiro2022,Whittle2019} or corporate-level analyses \cite{Bruno2018,Buccellato2016,Kito2018}. 
+Moreover, recent research has addressed diverse sectors such as Industry 4.0 \cite{Teixeira2022}, pharmaceutical biotechnology \cite{Sakakibara2014,Nakamura2022,Bhatia2018,Murakami2024}, and service innovation \cite{Taques2021}, reflecting the breadth of modern innovation ecosystems.
+Among these approaches, a notable stream of research has emerged from the study of product complexity derived from Hidalgo-Hausmann (HH) algorithm\cite{Hidalgo2009}. 
+The algorithm quantifies sophistication by applying network analysis to trade data and it has been adapted to different contexts such as economic, patents, and technological capabilities \cite{Hidalgo2021,Hidalgo2023,Hausmann2024,Balland2022,Chakraborty2020}. 
+The algorithm also has proven instrumental in highlighting technologies and capabilities that hold particular importance. 
+True key technology cannot be recognised by observing a field in isolation because importance arises from both how rarely a field is mastered and how it interlocks with other fields across portfolios.
+Building on this foundation, Balland and Rigby \cite{Balland2016} developed the Technological Complexity Index (TCI) to measure the complexity of technological fields using patent data. 
+The TCI captures the nuanced interplay between technological ubiquity (i.e., how few players are capable of producing it) and sophistication (i.e., how it is ubiquitous and produced by key players) \cite{Balland2018}. 
+Various extensions and complementary metrics have been proposed, including fitness-based approaches \cite{Tacchella2012,Wu2016,Albeaik2017} and additional frameworks for classification and measurement \cite{Schmoch2008,Soete1987,Balassa1965,Mealy2019,PintarEssletzbichler2022}.
+More recently, the method has been extended to Asian contexts and corporate-level analyses, supported by the increasing availability of detailed patent databases \cite{Jun2023,Dong2021}. 
+Despite these advancements, comprehensive applications of these methods in the Japanese context remain limited. 
+In addition, although Japan has experienced prolonged economic stagnation, often described as the “Lost Decades”, it can hardly be denied that Japanese government cannot effectively identify the technologies that will drive renewed innovation and international competitiveness \cite{Kobayashi2024}. 
+Although some studies, such as the work on automotive suppliers\cite{Kito2018}, have employed related approaches, there is a clear lack of a broad analysis that would illuminate the full landscape of Japanese technologies through the lens of complexity.
+
+This study addresses the existing gap by applying the HH algorithm to patent data from the Patent Office of Japan.
+A bipartite network is constructed to link domestic corporations with these technological domains, and a subsequent projection into a monopartite network facilitates the derivation of TCI.
+Represented by the second largest eigenvector of the network adjacency matrix, TCI enables a simultaneous evaluation of both technological spillovers and rarity.
+An analysis of temporal trends over the period 1981 to 2010 demonstrates that the proposed method yields a robust and detailed depiction of the technological landscape, thereby surpassing conventional quantitative measures such as simple patent counts.
+The assessment reveals detailed aspects of technological capabilities and their evolution over time.
+This study contributes to a comprehensive understanding of the innovation ecosystem by identifying the key technological fields through the lens of complexity.
+The insights obtained herein inform the development of more effective innovation policies and strategies.
+
+The rest of this paper is organized as follows. 
+In Results \ref{section:Results} section, we present the ubiquity and complexity of technological fields presented by the patent data, followed by a detailed analysis of technological trends.
+In the Discussion \ref{section:Discussion} section, we provide a critical analysis of our findings and discuss the implications of our results.
+Finally, in the Methods \ref{section:Methods} section, we detail the data processing and methods used in our analysis.

@@ -1,1 +1,6 @@
-./Literature/*
+Literature/*
+SciRep.code-workspace
+Out/*
+!Out/main.pdf
+
+Figs/*.pdf

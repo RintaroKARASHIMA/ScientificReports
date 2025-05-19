@@ -1,0 +1,46 @@
+\subsection*{Technological Complexity}
+\phantomsection
+\addcontentsline{toc}{subsection}{Technological Complexity}
+\label{subsection:technologicalcomplexity}
+The binary matrix \(M_{CT}\) forms the two metrics which characterize each node in the bipartite network by the sum of connections, known as degree centrality. The diversity of corporations \(K_{C,0}\) quantifies the number of technologies in which a corporation is specialized, and indicated by $M_{CT}$. 
+Similarly, the ubiquity of technologies \(K_{T,0}\) represents the number of corporations that exhibit a technological advantage in a given field. These quantities are computed as
+
+\begin{equation}\label{eq3}
+\begin{aligned}
+K_{C,0} = \sum_{T} M_{CT},  
+K_{T,0} = \sum_{C} M_{CT}~.
+\end{aligned}
+\end{equation}
+
+Higher diversity values indicate corporations with broad technological capabilities, while lower ubiquity values signify that the technologies are rare. 
+Through calculating these two characteristics of adjacent nodes iteratively, the diversity and ubiquity of each node is updated as
+
+\begin{equation}\label{eq4}
+K_{C,N} = \frac{1}{K_{C,0}} \sum_{T} M_{CT}\, K_{T,N-1},
+\end{equation}
+
+\begin{equation} \label{eq5}
+K_{T,N} = \frac{1}{K_{T,0}} \sum_{C} M_{CT}\, K_{C,N-1}.
+\end{equation}
+
+Here, the metric \(K_{T,1}\) represents the average nearest neighbor degree for technology nodes and it reflects the average diversity of corporations connected to a given technology.
+Substituting Eq. \ref{eq4} into Eq. \ref{eq5} yields
+
+\begin{equation} \label{eq6}
+K_{T,N} = \sum_{T'} \widetilde{M}_{TT'} K_{T',N-2}
+\end{equation}
+
+where \(T'\) denotes a technological field, and $\widetilde{M}_{TT'}$ is defined as
+
+\begin{equation} \label{eq7}
+\widetilde{M}_{TT'} = \sum_{C} \frac{M_{CT}\, M_{CT'}}{K_{C,0}\, K_{T,0}}~.
+\end{equation}
+
+Eq. \ref{eq6} is satisfied when  \(K_{T,N} = K_{T,N-2} = 1\), which corresponds to the eigenvector associated with the largest eigenvalue of the stochastic matrix \(\widetilde{M}_{T,T'}\). 
+Since this eigenvector is a vector of ones and not informative, the eigenvector corresponding to the second largest eigenvalue of \(\widetilde{M}_{TT'}\) captures the greatest variance among technology fields \cite{Hidalgo2021, Mealy2019}.
+Thus, TCI is given by
+\begin{equation} \label{eq8}
+TCI = \frac{\widetilde{T} - \langle \widetilde{T} \rangle}{\text{stdev}(\widetilde{T})},
+\end{equation}
+
+where \(\widetilde{T}\) represents the eigenvector corresponding to the second largest eigenvalue of \(\widetilde{M}_{TT'}\), and \(\langle \widetilde{T} \rangle\) is their mean and \(\text{stdev}(\widetilde{T})\) is their standard deviation.

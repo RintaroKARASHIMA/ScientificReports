@@ -1,0 +1,22 @@
+\section*{Discussion} \label{section:Discussion}
+
+In this study, we apply the TCI to Japanese corporate patent data, targeting corporations and all patent technological fields, to identify sophisticated technological areas that are key to fostering innovation.  
+Our findings highlight high complexity in the Pharmaceuticals and Chemistry sectors, a result that may reflect the societal conditions of the period, often described as the dawn of the pharmaceutical industry in Japan.  
+Importantly, the corporate level TCI preserves the same relative ranking of technologies even after switching from coarse Schmoch fields to finer IPC classes, demonstrating measurement invariance in contrast to earlier regional studies in which this ordering changed.  
+Although previous works argue that evaluation results of these technological fields may converge because of their classification methods\cite{Hidalgo2021}, the corporate level approach produced consistent evaluations even with finer classifications.  
+This finding contrasts with the traditional regional approach, which often relies on coarse classifications to keep stability.  
+The ability of the corporate approach to give consistent results at finer granularity suggests its potential to provide more accurate and detailed insight into technological trends within specific regions, industries, or other limited scopes.
+
+Limitations specific to the present method remain, particularly because capturing changes in technological trends requires both long term and short term evaluations that detect emerging fields and shifts in innovation patterns, yet such finer grained analyses introduce challenges in data processing.  
+For instance, the calculation of the TCI is sensitive to the number of patents by corporation and technological field in each period.  
+Shortening the aggregation period may introduce corporations with only a few patents, which adds noise to the TCI and reduces the stability of the results\cite{PintarEssletzbichler2022}.  
+This limitation reflects a shortcoming of the HH algorithm, which evaluates network complexity from node degrees in a bipartite graph and therefore relaxes the conditions for link formation when the data are sparse.  
+Several mathematical and algorithmic improvements can mitigate this issue.  
+The Fitness Complexity algorithm \cite{Tacchella2012} uses nonlinear iterative calculations that better account for network structure and shows strong correlations with indicators based on the HH algorithm while improving robustness in the evaluation of regional and corporate competitiveness \cite{Wu2016,Albeaik2017}.  
+In addition, links can be weighted by citation counts instead of raw patent counts to obtain a more systematic and scalable measure of technological effort.  
+Applying these enhancements within our framework would allow deeper insight into Japan's industrial technology landscape.  
+Future research should extend this work in several directions.  
+Robustness checks that compare the corporate level TCI with alternative indicators such as citation counts, methods that predict temporal changes in the bipartite graph using machine learning, and cross national comparisons are promising next steps.
+
+Ultimately, this study represents a cornerstone for understanding the characteristics of domestic industries in Japan through the lens of technological complexity.  
+By identifying key technological areas, the findings offer guidance that can inform industrial policies and strategies, especially during a period marked by rapid progress in artificial intelligence and growing international competition.  
