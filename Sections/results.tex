@@ -1,7 +1,12 @@
+% \@currentlabelname を手動で設定して \nameref 用のテキストを登録
+\makeatletter
+\def\@currentlabelname{Results}%
+\makeatother
+\label{section:Results}
+
 \section*{Results}
 \phantomsection
 \addcontentsline{toc}{section}{Results}
-\label{section:Results}
 
 \input{Sections/Results/characteristics.tex}
 

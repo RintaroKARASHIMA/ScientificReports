@@ -1,4 +1,12 @@
-\section*{Discussion} \label{section:Discussion}
+% \@currentlabelname を手動で設定して \nameref 用のテキストを登録
+\makeatletter
+\def\@currentlabelname{Discussion}%
+\makeatother
+\label{section:Discussion}
+
+\section*{Discussion}
+\phantomsection
+\addcontentsline{toc}{section}{Discussion}
 
 In this study, we apply the TCI to Japanese corporate patent data, targeting corporations and all patent technological fields, to identify sophisticated technological areas that are key to fostering innovation.  
 Our findings highlight high complexity in the Pharmaceuticals and Chemistry sectors, a result that may reflect the societal conditions of the period, often described as the dawn of the pharmaceutical industry in Japan.  
