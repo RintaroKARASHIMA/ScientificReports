@@ -4,7 +4,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{setspace}
 \usepackage{nameref}
-\usepackage{hyperref}
+% \usepackage{hyperref}
 % \newcommand{\predeclareMethods}{%
 %   \begingroup
 %     \def\@currentlabelname{Methods}% ① \nameref 用のテキスト
@@ -16,6 +16,9 @@
 % \usepackage{microtype}
 % \microtypesetup{patches=none}
 \doublespacing
+
+% hyperrefパッケージを最後に読み込む
+\usepackage[colorlinks=true]{hyperref}
 
 \begin{document}
 \title{Technological Complexity Based on Japanese Patent Data}
@@ -29,12 +32,15 @@
 \keywords{Keyword1, Keyword2, Keyword3}
 
 \begin{abstract}
-As international competition intensifies in technologies, nations need to identify key technologies to foster innovation. However, the identification is challenging due to the independent and inherently complex nature of technologies. Traditionally, regional analyses of technological portfolios have been limited to binary evaluations, indicating merely whether a region specializes in a technology, or relying on the average Technological Complexity Index (TCI) of the specialized technologies. This study proposes that evaluating TCI at the corporate level could provide finer granularity and more detailed insights. To address the underutilization of corporate-level TCI assessments in Japan, this study applies the Technological Complexity Index using carefully processed patent data spanning fiscal years 1981 to 2010. Specifically, we analyze a bipartite network composed of 1,938 corporations connected to technological fields categorized into either 35 or 124 classifications. Our findings quantitatively characterize the ubiquity and sophistication of each technological field, reveal detailed technological trends reflecting broader societal contexts, and demonstrate methodological stability even when employing finer technological classifications. Additionally, our corporate-level approach allows consistent comparisons across different regions and technological fields, clarifying regional advantages in specific technologies. This refined analytical framework offers policymakers and researchers robust, targeted insights, thereby significantly contributing to innovation strategy formulation in Japan.
-  % As international competition intensifies in technologies, nations need to identify key technologies to foster innovation. 
-% However, the identification is difficult because a technology is independent, and therefore it has complex nature. 
-% Here, this study aims to assess the patent technological fields by applying Technological Complexity Index from a corporate perspective, addressing its underutilization in Japan despite its potential. 
-% By utilizing carefully processed patent data from fiscal years 1981 to 2010, we analyze the bipartite network which consists of 1,938 corporations and 35 or 124 technological fields. 
-% Our findings provide quantitative characteristics of the ubiquity and the sophistication for each patent fields, the detailed technological trends that reflect the social context, and methodological stability for policymakers and researchers, contributing to targeted innovation strategies in Japan.
+As international competition intensifies in technologies, nations need to identify key technologies to foster innovation. 
+However, the identification is challenging due to the independent and inherently complex nature of technologies. 
+Traditionally, regional analyses of technological portfolios have been limited to binary evaluations, indicating merely whether a region specializes in a technology, or relying on the average Technological Complexity Index (TCI) of the specialized technologies. 
+This study proposes that evaluating TCI at the corporate level could provide finer granularity and more detailed insights. 
+To address the underutilization of corporate-level TCI assessments in Japan, this study applies the Technological Complexity Index using carefully processed patent data spanning fiscal years 1981 to 2010. 
+Specifically, we analyze a bipartite network composed of 1,938 corporations connected to technological fields categorized into either 35 or 124 classifications. 
+Our findings quantitatively characterize the ubiquity and sophistication of each technological field, reveal detailed technological trends reflecting broader societal contexts, and demonstrate methodological stability even when employing finer technological classifications. 
+Additionally, our corporate-level approach allows consistent comparisons across different regions and technological fields, clarifying regional advantages in specific technologies. 
+This refined analytical framework offers policymakers and researchers robust, targeted insights, thereby significantly contributing to innovation strategy formulation in Japan.
 
 \end{abstract}
 
