@@ -3,50 +3,18 @@
 \addcontentsline{toc}{section}{Introduction}
 \label{section:Introduction}
 
-% The Introduction section, of referenced text\cite{Figueredo:2009dg} expands on the background of the work (some overlap with the Abstract is acceptable). The introduction should not include subheadings.
+In the twenty-first century, intensifying international competition has made technological capability a central element of national competitiveness. Nations seek to foster environments that support the development of sophisticated technologies, as these capabilities are fundamental to sustainable economic growth. The ecosystems that produce such capabilities are, however, inherently complex, involving interactions among countries, corporations, and technologies \cite{Weaver1948}. This complexity makes it difficult to accurately identify the key technological fields and actors within the system. Understanding this structure is crucial for developing effective science and technology strategies to strengthen a nation's competitive advantage.
 
-In the twenty first century, international competition has significantly intensified.
-Countries worldwide formulate diverse industrial policies aimed at enhancing competitiveness.
-Key technological fields form the environment from which innovation arises.
-Identifying key technological fields is critical for national competitiveness.
-However, accurately pinpointing key technological fields remains challenging.
-This difficulty arises because innovation emerges from a complex system involving countries, cities, regions, corporations and technologies \cite{weaver1948}.
+Historically, attempts to quantify the structure of national or regional economies have often relied on traditional diversity metrics. 
+Although useful for measuring overall diversification, indicators such as the Herfindahl-Hirschman Index or the entropy index have a significant limitation: they cannot distinguish between the underlying components of an economy. These metrics assess the number of different product types a region makes, but not the specific nature of those products. This inability to differentiate based on a product's intrinsic characteristics creates a major problem for understanding the true technological landscape.
 
-Policymakers still lack a clear data driven understanding of technologies and corporations that hold rare and sophisticated capabilities essential for growth.
-This study uses approximately 2.6 million Japanese patent records to identify such technologies and actors.
-Technological complexity at the corporate level is quantified for the first time.
+A key limitation of conventional indices is their inability to account for the spatial distribution, or ubiquity, of technologies. These methods can reveal if a region has a diverse technological portfolio, but they do not provide information on whether those technologies are commonplace or rare. A technology that is mastered by many regions is fundamentally different from one that is mastered by only a select few. By treating all technologies as equal, these approaches miss a critical aspect of sophistication and thus offer an incomplete picture of technological capability.
 
-Globally, different regions and institutions approach this challenge from various perspectives.
-In the European Union, the concept of Smart Specialisation helps identify key domains for policy support \cite{EC_SSP_nodate,Teixeira2022}.
-In Japan, science and technology strategies continue to evolve \cite{NISTEP_nodate}.
-Various indicators are proposed for assessing innovation across manufacturing, services and advanced materials \cite{Taques2021,Farcal2023}.
-Studies typically focus on national level \cite{Teixeira2022,Abay2024}, regional level \cite{Balland2018,PintarScherngell2022,Pinheiro2022,Whittle2019} or corporate level analyses \cite{Bruno2018,Buccellato2016,Kito2018}.
-Recent research explores diverse sectors such as Industry 4.0 \cite{Teixeira2022}, pharmaceutical biotechnology \cite{Sakakibara2014,Nakamura2022,Bhatia2018,Murakami2024} and service innovation \cite{Taques2021}.
+The Hidalgo-Hausmann (HH) algorithm provides a powerful solution by considering both the diversity of a region and the ubiquity of its products or technologies \cite{Hidalgo2009}. This dual perspective allows the methodology to distinguish between components and quantify their complexity, revealing detailed economic structures not captured by traditional metrics. Despite these advantages, applications of the HH algorithm have predominantly focused on a macro level, such as cities or regions \cite{Hidalgo2021}. While adaptations to patent data have been developed, particularly in Western countries \cite{Balland2017tci}, comprehensive validation at the corporation level remains limited. This leaves a clear research gap.
 
-Among these approaches, the Hidalgo Hausmann algorithm is notable \cite{Hidalgo2009eci}.
-Hidalgo and Hausmann use trade data to represent productive capabilities linking countries and products as a bipartite network.
-Their Product Complexity Index quantifies complexity by iteratively calculating capability diversity of countries and rarity required by products.
-The Hidalgo Hausmann algorithm has been adapted to various contexts including economic analyses, patents and technological capabilities \cite{Hidalgo2021,Hidalgo2023,Hausmann2024,Balland2022,Chakraborty2020}.
-True key technologies cannot be recognised by examining isolated fields because their importance arises from interdependencies.
+To address this gap, our study applies the HH algorithm to an extensive set of Japanese patent records to quantify technological complexity at the corporation level. By constructing bipartite networks linking corporations to technology classes, we develop a detailed measure of technological sophistication. Our analysis investigates the relationships between technological complexity, ubiquity, and corporate diversity, providing new insights into the nature of advanced capabilities. The model developed at the corporation level provides a more robust and consistent assessment of technology than regional-level models, particularly for finely classified technological fields. Importantly, this study shows that a corporation-level approach enables a direct comparison of technological characteristics across different regions. By focusing on corporations within specific locales, we can identify distinct industrial specializations and reveal which technologies are complex within each region’s unique context. The framework and insights from this study provide a powerful tool for creating tailored industrial policies and more accurately identifying the key technologies vital for future growth.
 
-Building on this foundation, Balland and Rigby propose the Technological Complexity Index to measure technological fields using patent data \cite{Balland2017tci}.
-The Technological Complexity Index captures interplay between ubiquity and sophistication \cite{Balland2018}.
-Complementary metrics include fitness based approaches \cite{Tacchella2012,Wu2016,Albeaik2017} and frameworks for classification and measurement \cite{Schmoch2008,Soete1987,Balassa1965,Mealy2019,PintarEssletzbichler2022}.
-These approaches recently extend to Asian contexts and corporate level analyses due to increasing data availability \cite{Jun2023,Dong2021}.
-However, comprehensive application of these methods in Japan remains limited.
-Japan experiences prolonged economic stagnation often termed the Lost Decades \cite{Kobayashi2024}.
-Despite related corporate analyses such as automotive suppliers \cite{Kito2018}, broad analysis of Japanese technological capabilities through complexity is notably absent.
-
-This study addresses this gap by applying the Hidalgo Hausmann algorithm to patent data from the Japan Patent Office.
-A bipartite network links corporations to technological fields and projects to a monopartite network to calculate the Technological Complexity Index.
-The index represented by the second largest eigenvector of the adjacency matrix assesses technological spillovers and rarity simultaneously.
-Temporal analysis from 1981 to 2010 demonstrates robust depiction of technological capabilities beyond simple patent counts.
-The analysis details technological capabilities evolution over time.
-
-This study contributes significantly to understanding innovation ecosystems through complexity.
-Findings inform targeted effective innovation policies and strategies.
-
-The rest of the paper is structured as follows.
-Section \ref{section:Results} presents technological ubiquity and complexity analysis with trends.
-Section \ref{section:Discussion} critically examines implications and limitations.
-Section \ref{section:Methods} details data processing and analytical methods used.
+The rest of this paper is organized as follows. 
+In \nameref{section:Results} section, we present the ubiquity and complexity of technological fields presented by the patent data, followed by a detailed analysis of technological trends.
+In the \nameref{section:Discussion} section, we provide a critical analysis of our findings and discuss the implications of our results.
+Finally, in the \nameref{section:Methods} section, we detail the data processing and methods used in our analysis.
