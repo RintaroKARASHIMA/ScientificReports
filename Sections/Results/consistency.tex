@@ -3,18 +3,20 @@
 \addcontentsline{toc}{subsection}{Finer Technological Trends and Consistency}
 \label{subsection:consistency}
 
-The traditional regional approach measures technological complexity as a relative index reflecting regional technological capabilities, shaped by the economic advantages arising when corporations cluster within particular countries or cities, known as agglomeration economies \cite{hartmann2024economic}. 
-Consequently, this method inherently captures spatial inequalities and is strongly influenced by urbanization levels in Japan. 
-In terms of evaluating a region’s technological portfolio, this approach typically provides limited insights, either indicating binary specialization in technologies (0 or 1) or offering only the average TCI of the specialized technologies. Furthermore, finer classifications, such as IPC classes, tend to produce less consistent complexity indices compared to broader classifications like the Schmoch system \cite{PintarEssletzbichler2022}.
-Such inconsistencies appear in both regional and technological complexity evaluations due to the symmetric nature of the bipartite network structure underlying these calculations.
-
-In this study, we propose examining technological complexity at the corporate level to overcome these limitations and achieve a more detailed understanding of regional technological portfolios. Specifically, by calculating TCI at the corporate level, we explore whether it is possible to capture more granular insights into technological capabilities within regions. By comparing TCI results derived from regional and corporate approaches, we assess how classification granularity influences the evaluation of inequality and stability of technological complexity across regions and corporations (Panel A in Fig.~\ref{fig:detailtci}).
+By calculating TCI at the corporate level, we explore whether it is possible to capture more granular insights into technological capabilities within regions. By comparing TCI results derived from regional and corporate approaches, we assess how classification granularity influences the evaluation of inequality and stability of technological complexity across regions and corporations (Panel A in Fig.~\ref{fig:detailtci}).
 In this study, we address these inconsistencies by comparing TCI results obtained from regional and corporate approaches, analyzing how classification granularity affects inequality and stability of complexity across regions and corporations (Panel A in Fig.~\ref{fig:detailtci}).
 
-The scaled TCI of the Schmoch system shows that in the regional approach 26 out of 35 classes fall in the range of 75 to 100. 
+\begin{figure}[ht]
+  \centering
+  \includegraphics[scale=0.65]{Figs/Fig2.eps}
+  \caption{(A) The TCI scores of IPC first Class (N = 124) and Schmoch (N = 35) for both prefectures and corporations. The scores have been scaled to values ranging from 0 to 100. Each IPC is plotted against the corresponding Schmoch axis, and in cases of multiple correspondences (i.e., Schmoch class “Chemical Engineering” maps to IPC classes B01–B08, C14, etc.), each pair is plotted individually. (B) The distribution of the absolute differences between TCI of IPC and of Schmoch systems.}
+  \label{fig:detailtci}
+\end{figure}
+
+The scaled TCI of the Schmoch system shows that in the regional approach 26 out of 35 classes fall in the range of 75 to 100 (Fig.~\ref{fig:detailtci}). 
 In the corporate approach, only 15 classes lie in that range, whereas the other classes display greater differences among technologies in the regional approach. 
-This difference in stems from the corporate approach being able to characterize each technology in a more detailed manner. 
-The HH algorithm defines ubiquity as the degree of a technology node and this measure depends on the number of paired nodes. 
+This difference stems from the corporate approach being able to characterize each technology in a more detailed manner. 
+The HH algorithm defines ubiquity as the degree of a technology node and this measure depends on the number of paired nodes (i.e., regions or corporations). 
 The regional approach comprised roughly a few hundred region nodes, such as countries or EU cities\cite{Hidalgo2021,Daniel2020technological}.
 The corporate approach has corporation nodes numbering from one thousand to several ten thousand. The iterative calculation of TCI can therefore reflect a wider range of ubiquity.
 
@@ -26,28 +28,15 @@ A Mann-Whitney U test shows that the distribution of residuals between the TCI v
 These consistent and detailed trends are observed not only over a 30 year period but also in evaluations over shorter periods such as 5 years. For example, in the IPC classes corresponding to Food chemistry, the trend of high TCI is consistent in the 2000s. 
 Technologies with high scores as C13 and A21 and those that decline as A23 and A01 are captured in a consistent manner (SI Fig.~\ref{fig:bump}).
 
-% Moreover, the corporate approach facilitates relative technological evaluations within specific regions, a capability absent in the traditional regional approach, which relies solely on the national-level presence of technologies. 
-% The corporate method identifies strategically important technologies within individual regions. 
-% For example, comparative analyses of TCI values for IPC classes among three representative prefectures, Tokyo, Osaka, and Aichi, highlight distinct local technological strengths. Aichi, notable for its concentration of major manufacturing corporations including Toyota, exhibits a technological profile markedly different from Tokyo and Osaka (Fig.~\ref{fig:prefcompare}). 
-% Technologies showing relatively higher local complexity despite lower overall national rankings underline region-specific corporate advantages.
-
-Moreover, in terms of inter-regional comparison, conventional regional approach has compared node features such as average TCI or linkage to a specific technology within a single network. 
-However, the corporate approach in this study allows for the comparison of the TCI of a technology node across two different networks which are a regional network and the national network. 
-This approach therefore offers a quantitative perspective for evaluating the relative advantages of technologies within a specific region.
-For instance, Figure~\ref{fig:prefcompare} presents a comparative analysis of corporate TCI values for IPC classes among three representative prefectures which are Tokyo, Osaka, and Aichi. The plot for Tokyo (left panel) reveals a strong correlation between its corporate TCI and the national TCI. The tight clustering of data points along the $\text{y} = \text{x}$ diagonal indicates that Tokyo's technological structure closely mirrors the national profile. The consistent positioning of most IPC classes slightly above the diagonal suggests that the technological complexity in Tokyo, while highly representative of the nation, is marginally lower than the national benchmark for most fields.  The plot for Osaka (middle panel) shows a similarly high correlation but with slightly more dispersion where a few IPC classes fall below the diagonal, suggesting the emergence of nascent regional specializations.
-In contrast, Aichi (right panel) exhibits a clear pattern of technological specialization with its IPC classes widely scattered from the diagonal. Notably, technologies in the information and communication field, such as computing (G06), basic electronic circuits (H03), and telecommunications (H04), are located significantly below the diagonal. This demonstrates that their TCI within Aichi is substantially higher than their national-level TCI, revealing a prominent regional advantage in electronics and ICT. Conversely, several manufacturing-related IPC classes, including presses (B30), decorative arts (B44), and lighting (F21), appear above the diagonal. This finding suggests that for these specific fields, Aichi's technological complexity is relatively lower than the TCI for all corporations nationwide. The corporate approach thus reveals Aichi's unique technological structure, characterized by a strong specialization that differs markedly from the profiles of Tokyo and Osaka.
-
-
-\begin{figure}[ht]
-    \centering
-    \includegraphics[scale=0.65]{Figs/Fig2.eps}
-    \caption{(A) The TCI scores of IPC first Class (N = 124) and Schmoch (N = 35) for both prefectures and corporations. The scores have been scaled to values ranging from 0 to 100. Each IPC is plotted against the corresponding Schmoch axis, and in cases of multiple correspondences (i.e., Schmoch class “Chemical Engineering” maps to IPC classes B01–B08, C14, etc.), each pair is plotted individually. (B) The distribution of the absolute differences between TCI of IPC and of Schmoch systems.}
-    \label{fig:detailtci}
-\end{figure}
+Moreover, in terms of inter-regional comparison, conventional regional analysis has compared regions features such as average TCI or whether there is a link to a specific technology. However, the corporate analysis in this study allows for the comparison of each technology's TCI among corporate networks in different regions. This analysis therefore offers a quantitative perspective for evaluating the relative advantages of technologies within a specific region.
+For instance, Fig.~\ref{fig:prefcompare} presents a comparative analysis of corporate TCI values for IPC classes among Tokyo, Osaka, and Aichi, which are the three prefectures with the highest regional GDP.
+The plot for Tokyo (left panel) reveals a strong correlation between its corporate TCI and the national TCI. The tight clustering of data points along the y=x diagonal indicates that Tokyo's technological structure closely mirrors the national profile, representing a microcosm of the nation's overall technological landscape. A notable exception is Combinatorial Chemistry (C40), which shows a significantly lower TCI in Tokyo compared to the national average, suggesting a specific local deviation.
+The plot for Osaka (middle panel) shows a similarly high correlation, but with slightly more dispersion. This is most prominent in Combinatorial Chemistry (C40), which has a TCI value near zero, indicating this technology field is almost non-existent in the region and highlighting a clear feature of its industrial structure.
+In contrast, Aichi (right panel) exhibits a clear pattern of technological specialization with its IPC classes widely scattered from the diagonal. Notably, technologies in the information and communication field, such as computing (G06), basic electronic circuits (H03), and telecommunications (H04), are located significantly above the diagonal. This demonstrates that their TCI within Aichi is substantially higher than their national-level TCI, revealing a prominent regional advantage in electronics and ICT. Conversely, several manufacturing-related IPC classes, including presses (B30), decorative arts (B44), and lighting (F21), appear below the diagonal. This finding suggests that for these specific fields, Aichi's technological complexity is relatively lower than the TCI for all corporations nationwide. The corporate approach thus reveals Aichi's unique technological structure, characterized by a strong specialization that differs markedly from the profiles of Tokyo and Osaka.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.45]{Figs/Fig3.eps}
-    \caption{Three scatter plots arranged in a single row compare the Corporate TCI in Japan (vertical axis) to the Corporate TCI in Tokyo (left panel), Osaka (middle panel), and Aichi (right panel) on the horizontal axis. Each axis is scaled from 0 to 100, and the black points represent data points for each classification or entity. The red dashed line indicates the diagonal (y = x).}
+    \caption{Three scatter plots arranged in a single row compare the Corporate TCI in all prefectures(horizontal axis) to the Corporate TCI in Tokyo (left panel), Osaka (middle panel), and Aichi (right panel) on the vertical axis. Each axis is scaled from 0 to 100, and the black points represent data points for each classification or entity. The red dashed line indicates the diagonal (y = x).}
     \label{fig:prefcompare}
 \end{figure}
