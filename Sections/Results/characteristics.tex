@@ -3,24 +3,25 @@
 \addcontentsline{toc}{subsection}{Characteristics of Technologies}
 \label{subsection:characteristics}
 
-In this study, we use the HH algorithm to quantify the structural characteristics of technologies based on patent publications from 1,938 corporations filed between fiscal years 1981 and 2010 (see \nameref{section:Methods} section).
+In this study, we use the HH algorithm to quantify the structural characteristics of technologies based on corporate patent publications from 1,939 corporations filed between fiscal years 1981 and 2010 (see \nameref{section:Methods} section).
 First, we define ubiquity (or degree centrality) $K_{T,0}$ as the number of corporations connected to a technology which lower value indicates that the technology is more rare. 
 Similarly, the average diversity $K_{T,1}$, which measures the variety of corporations connected to a technology, implies that a higher value reflects diversified publication, whereas a lower value suggests specialization. 
 Generally, the average of each indicator is used as a threshold to distinguish high from low values \cite{hidalgo2009eci,balland2017tci, Balland2018}.
 
 Another key indicator is TCI, which represents the sophistication of a technology by reflecting how advanced the knowledge required for its production. A threshold of zero divides TCI into high and low categories: a high TCI implies that a technology demands a complex combination of unique inputs and advanced technical expertise which indicates only a few advanced corporations can publish it competitively, whereas a low TCI indicates reliance on widely available capabilities, allowing many corporations to participate.
 
-To systematically evaluate technological characteristics, we map the relationships among ubiquity $K_{T,0}$, average diversity $K_{T,1}$, and TCI across patent technologies. (Fig.~\ref{fig:scatter})
+To systematically evaluate technological characteristics, we map the relationships among ubiquity $K_{T,0}$, average diversity $K_{T,1}$, and TCI across patent technologies (Fig.~\ref{fig:scatter}).
 Technologies are classified according to the Schmoch system \cite{Schmoch2008}, as illustrated in Panel A of Fig.~\ref{fig:scatter}. Values for ubiquity and average diversity are normalized by their respective means, while TCI is segmented by the zero threshold.
 
 \begin{figure}[ht]
   \centering
   \includegraphics[scale=0.95]{Figs/Fig1.eps}
-  \caption{(A) The legend of the five classifications defined by Schmoch \cite{Schmoch2008}, along with an explanation of the technology codes used in (B), (C), and (D).
-  (B) Pearson correlation between ubiquity \(K_{T,0}\) and average diversity \(K_{T,1}\) (\(r=0.064\)).
-  (C) Pearson correlation between ubiquity \(K_{T,0}\) and TCI (\(r=0.594\)).
-  (D) Pearson correlation between TCI and average diversity \(K_{T,1}\) (\(r=0.316\)).
-  The black lines indicate the mean values of \(K_{T,0}\) and \(K_{T,1}\), and \(\text{TCI} = 0\) is also shown with a black line. Each dot is color‐coded according to (A).
+  \caption{
+  (A) The legend of the five classifications defined by Schmoch \cite{Schmoch2008}, along with an explanation of the technology codes used in Panels (B), (C), and (D).
+  (B) The Ubiquity \(K_{T,0}\) versus average diversity \(K_{T,1}\).
+  (C) The Ubiquity \(K_{T,0}\) versus TCI.
+  (D) The TCI versus average diversity \(K_{T,1}\).
+  The black lines in Panels (B), (C), and (D) indicate the mean values of \(K_{T,0}\) and \(K_{T,1}\), and \(\text{TCI} = 0\) is also shown with a black line. Each dot is color‐coded according to (A).
   }
   \label{fig:scatter}
 \end{figure}
@@ -33,8 +34,6 @@ In this context, Electrical Engineering exhibits low ubiquity, low average diver
 Detailed analysis using International Patent Classification (IPC) classes further supports these observations (Fig.~\ref{fig:persector}). 
 Within the five major sectors defined by Schmoch \cite{Schmoch2008}, the relationship between ubiquity and average diversity is predominantly weak or moderate. Specifically, Electrical Engineering displays a strong positive correlation between ubiquity and TCI (Pearson correlation coefficient $r=0.738$), highlighting the coexistence of corporations specializing in broadly applicable technologies and those focusing on niche, specialized innovations.
 
-In contrast to Electrical engineering technologies, Chemistry and Pharmaceuticals technologies mostly exhibit high TCI and the high average diversity (Panel D in Fig.~\ref{fig:scatter}, Pearson correlation coeffecience $r=0.316$).
-These sectors are characterized by rarity and high sophistication and are typically developed by more diversified corporations. 
-Moreover, corporations in these domains are connected not only to fields with low ubiquity but also to those that are more common (e.g., Biotechnology, Analysis of Biological Materials, and Measurement as shown in the right quadrant of Panel C in Fig.~\ref{fig:scatter}). 
-A detailed examination reveals a slight negative correlation between ubiquity and average diversity (Fig.~\ref{fig:persector}), suggesting that in sectors with high technological complexity, corporations with more comprehensive technological portfolios tend to produce rare technologies. 
-Furthermore, the IPC classes corresponding to Biotechnology and Measurement, show high TCI values in fields related to the production of sugar and yeast (C13, A21, C12), drug discovery (A61, C07), and the preservation of these technologies (C07, A23). These findings are consistent with the socio-technical context of the period, particularly reflecting the emergence of drug discovery technologies in the 1980s and 1990s \cite{Sakakibara2014,Nakamura2022}. Moreover, the significant roles of food chemistry and biotechnology during the 1990s and 2000s underscore their contribution to the development of additives that enabled safer food preservation and processing not only in Japan but globally \cite{Bhatia2018,Murakami2024}.
+Electrical engineering technologies are predominantly located in the region of low TCI and low average diversity (Panel B in Fig.~\ref{fig:scatter}). In contrast, Chemistry and Pharmaceuticals technologies are clustered in the area of high TCI and high average diversity, exhibiting a positive correlation between these two metrics (Panel D in Fig.~\ref{fig:scatter}; Pearson correlation coefficient $r$=0.316). Furthermore, corporations in the Chemistry and Pharmaceuticals domains are connected not only to fields with low ubiquity but also to those that are more common (e.g., Biotechnology, Analysis of Biological Materials, and Measurement; Panel C in Fig.~\ref{fig:scatter}).
+Thus, these results demonstrate a fundamental difference between the two technological domains. The Chemistry and Pharmaceuticals sectors are characterized by rarity and high sophistication and are typically developed by more diversified corporations. A detailed examination reveals a slight negative correlation between ubiquity and average diversity (Fig.~\ref{fig:persector}), suggesting that in sectors with high technological complexity, corporations with more comprehensive technological portfolios tend to produce rare technologies.
+Furthermore, the IPC classes corresponding to Biotechnology and Measurement show high TCI values in fields related to the production of sugar and yeast (C13, A21, C12), drug discovery (A61, C07), and the preservation of these technologies (C07, A23). These findings are consistent with the socio-technical context of the period, particularly reflecting the emergence of drug discovery technologies in the 1980s and 1990s \cite{Sakakibara2014,Nakamura2022}. Moreover, the significant roles of food chemistry and biotechnology during the 1990s and 2000s underscore their contribution to the development of additives that enabled safer food preservation and processing not only in Japan but globally \cite{Bhatia2018,Murakami2024}.

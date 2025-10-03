@@ -1,45 +1,38 @@
-\subsection*{Finer Technological Trends and Consistency}
+\subsection*{Consistency over Time and Comparison between Regions}
 \phantomsection
-\addcontentsline{toc}{subsection}{Finer Technological Trends and Consistency}
+\addcontentsline{toc}{subsection}{Consistency}
 \label{subsection:consistency}
 
-By calculating TCI at the corporate level, we explore whether it is possible to capture more granular insights into technological capabilities within regions. By comparing TCI results derived from regional and corporate approaches, we assess how classification granularity influences the evaluation of inequality and stability of technological complexity across regions and corporations (Panel A in Fig.~\ref{fig:detailtci}).
-In this study, we address these inconsistencies by comparing TCI results obtained from regional and corporate approaches, analyzing how classification granularity affects inequality and stability of complexity across regions and corporations (Panel A in Fig.~\ref{fig:detailtci}).
+The preceding section summarized TCI over the full period from fiscal year 1981 to 2010 and provided a baseline view of technological characteristics in Japan. 
+In this section, we examine how stable that structure may be over time. For policy and strategy, an important consideration is not only which technologies appear complex on average but also whether their relative positions tend to persist or show signs of reordering as the innovation system evolves. At the same time, it has been pointed out that TCI may be sensitive to design choices such as the granularity of the technology classification and the length of the time window\cite{PintarEssletzbichler2022}. 
+Therefore, we compute TCI for the Schmoch 35 classes in six consecutive five year windows spanning fiscal year 1981 to 2010, and rank technologies by TCI within each window(Fig.~\ref{fig:detailtci}).
 
 \begin{figure}[ht]
   \centering
   \includegraphics[scale=0.65]{Figs/Fig2.eps}
-  \caption{(A) The TCI scores of IPC first Class (N = 124) and Schmoch (N = 35) for both prefectures and corporations. The scores have been scaled to values ranging from 0 to 100. Each IPC is plotted against the corresponding Schmoch axis, and in cases of multiple correspondences (i.e., Schmoch class “Chemical Engineering” maps to IPC classes B01–B08, C14, etc.), each pair is plotted individually. (B) The distribution of the absolute differences between TCI of IPC and of Schmoch systems.}
+  \caption{The TCI rankings of the 35 Schmoch classes in six consecutive five year windows spanning fiscal year 1981 to 2010.}
   \label{fig:detailtci}
 \end{figure}
 
-The scaled TCI of the Schmoch system shows that in the regional analysis 26 out of 35 classes fall in the range of 75 to 100 (Fig.~\ref{fig:detailtci}). 
-In the corporate analysis, only 15 classes lie in that range, whereas the other classes display greater differences among technologies in the regional analysis. 
-This difference stems from the corporate analysis being able to characterize each technology in a more detailed manner. 
-The HH algorithm defines ubiquity as the degree of a technology node and this measure depends on the number of paired nodes (i.e., regions or corporations). 
-The regional analysis comprised roughly a few hundred region nodes, such as countries or EU cities\cite{Hidalgo2021,Daniel2020technological}.
-The corporate analysis has corporation nodes numbering from one thousand to several ten thousand. The iterative calculation of TCI can therefore reflect a wider range of ubiquity.
-The difference between the approaches also appears when using a finer classification. When the classification becomes more detailed and the number of technology nodes increases, the regional approach cannot define ubiquity sufficiently. 
-In the case of Civil engineering the variance of TCI values for IPC classes corresponding to the same Schmoch class is larger than that for the corporate approach. 
-The larger difference between the TCI values of the coarse classification and those of the finer classification indicates a greater inconsistency in the evaluation for the regional approach. 
-A Mann-Whitney U test shows that the distribution of residuals between the TCI values of the Schmoch and IPC classes is significantly different (U = 7495.5, p value = 6.55e-15, r value = 0.60) and that the residuals for the corporate analysis are smaller than those for the regional analysis (Panel B in Fig.~\ref{fig:detailtci}).
-These consistent and detailed trends are observed not only over the 30-year period but also in shorter five-year intervals (SI Fig.~\ref{fig:bump}).
-For example, in the IPC classes related to Food Chemistry, a persistently high TCI is observed for sugars(C13) and baking technologies(A21) throughout the 2000s.
-By contrast, foodstuffs(A23) and agriculture-related technologies(A01) show gradual declines in ranking, particularly after the mid-1990s, indicating that even within related technological fields, some areas maintain their complexity advantage while others lose ground.
+An analysis of the temporal ranking suggests that the technological hierarchy exhibits considerable persistence, with a stratified overall structure (Fig.~\ref{fig:detailtci}). Distinct groups of technologies tend to occupy the top and bottom tiers over the 30-year period. Within this general stability, certain dynamics are also apparent, including periods of substantial reordering.
+
+A closer examination of the figure reveals several patterns. First, a group of technologies related to chemistry and life sciences is consistently positioned in the top ranks. These include Pharmaceuticals, Food chemistry, Organic fine chemistry, Biotechnology, and Macromolecular chemistry, polymers.
+
+Conversely, technologies associated with ICT are generally found in the lower ranks. Fields such as Digital communication, Computer technology, Telecommunications, and IT methods for management remain in the lower portion of the ranking across most windows. The middle ranks are characterized by more volatility, with several mechanical and electrical engineering fields showing fluctuations. The relative positions of Electrical machinery, apparatus, energy, Semiconductors, Measurement, Mechanical elements, and Machine tools, for example, shift over time.
+
+Regarding the temporal dynamics, a notable degree of reordering occurs between the 1980s and the early 1990s. In the 2000s, the rankings show signs of stabilization. While the high-ranking chemical and medical technologies solidify their positions, some fields exhibit distinct trajectories. For example, Semiconductors and Micro-structural and nano-technology experience a temporary rise in rank before a subsequent downward adjustment. The initial high rank of Micro-structural and nano-technology coincides with a period when few corporations possessed production capabilities in this field.
+
+These consistent trends are observed not only 35 Schmoch classes but also IPC classes which are more finer classification (SI Fig.~\ref{fig:bump}).
+For example, in the IPC classes related to Food Chemistry, a persistently high TCI is observed for sugars (C13) and baking technologies (A21) throughout the 2000s.
+By contrast, foodstuffs (A23) and agriculture-related technologies (A01) show gradual declines in ranking, particularly after the mid-1990s, indicating that even within related technological fields, some areas maintain their complexity advantage while others lose ground.
 This suggests that the relative positioning of technologies can be captured in a stable and systematic manner across different time resolutions.
 
-Moreover, in terms of comparison between the portfolios of specific regions, regional analysis has compared connections features such as average TCI or whether there is a link to a specific technology. 
-Conversely, the corporate analysis in this study allows for the comparison of each technology's TCI among corporate networks in different regions. 
-This analysis therefore offers a quantitative perspective for for capturing the technological portfolio of a specific region.
-For instance, Fig.~\ref{fig:prefcompare} presents a comparative analysis of corporate TCI values for IPC classes among Tokyo, Osaka, and Aichi, shown pairwise as Tokyo–Osaka (left), Tokyo–Aichi (middle), and Osaka–Aichi (right), the three prefectures with the highest regional GDP.
-The plot for Tokyo and Osaka (left panel) suggests a strong correlation between corporate TCI in Tokyo and corporate TCI in Osaka. The relatively tight clustering of data points along the $\text{y} = \text{x}$ diagonal implies that Tokyo's technological structure closely resembles that of Osaka. A few outliers can be observed, including Combinatorial Chemistry (C40), which appears to have a markedly lower TCI in both regions, and Weapons (F41), where Osaka records a relatively higher TCI that may be associated with its traditional cutlery industry.
-Similarly, the plot for Tokyo and Aichi (middle panel) indicates a comparable overall correlation, but with noticeably greater dispersion. Several technologies in electronics and ICT, such as computing (G06), basic electronic circuits (H03), and telecommunications (H04), appear above the diagonal, suggesting that their complexity in Aichi may be relatively higher than in Tokyo. In contrast, classes such as hand or travelling articles (A45), lighting (F21), and bookbinding/printing-related technologies (B42) are located below the diagonal, implying a relative advantage for Tokyo in these consumer-goods and light manufacturing fields.
-In contrast, the Osaka–Aichi comparison (right panel) appears to exhibit the most pronounced divergence. While many ICT-related classes such as G03, G04, G08, G09, H03, and H04 again lie above the diagonal in Aichi, Osaka seems to have higher complexity in manufacturing-oriented classes such as presses (B30), decorative arts (B44), hand or travelling articles (A45), and lighting (F21). This pattern may highlight that Aichi’s technological profile diverges not only from Tokyo but also from Osaka, reflecting a distinctive regional specialization in electronics and ICT.
-The corporate analysis thus suggests that Aichi possesses a unique technological structure, characterized by a relatively strong specialization that may differ from the profiles of Tokyo and Osaka.
+Regional comparisons are also informative, since similarity or divergence in corporate TCI across prefectures can reveal distinctive industrial bases and specialization patterns. We compare cross prefectural alignment by pairing Tokyo, Osaka, and Aichi and reading class level correspondence from concentration around the diagonal and salient departures in the scatter plots (Fig.~\ref{fig:prefcompare}). Tokyo and Osaka exhibit a close correspondence across many fields. Tokyo and Aichi show a looser association in which Aichi tends to be stronger in electronics and ICT, for example Computing (G06) and Telecommunications (H04), while Tokyo shows relative strengths in consumer goods and light manufacturing, for example Printing and Bookbinding (B42) and Lighting Technology (F21). The pair of Osaka and Aichi diverges the most, with Aichi again relatively strong in electronics, for example Computing (G06) and Basic Electronic Circuitry (H03), whereas Osaka appears higher in manufacturing oriented areas, for example Presses (B30) and Decorative Arts and Processes (B44). This pattern may highlight that Aichi’s technological profile diverges not only from Tokyo but also from Osaka, reflecting a distinctive regional specialization in electronics and ICT.
+The corporate analysis thus may make finer regional technological characteristics visible within each prefecture than the regional level analysis.
 
 \begin{figure}[ht]
     \centering
     \includegraphics[scale=0.45]{Figs/Fig3.eps}
-    \caption{Three scatter plots arranged in a single row compare the Corporate TCI in all prefectures(horizontal axis) to the Corporate TCI in Tokyo (left panel), Osaka (middle panel), and Aichi (right panel) on the vertical axis. Each axis is scaled from 0 to 100, and the black points represent data points for each classification or entity. The red dashed line indicates the diagonal (y = x).}
+    \caption{Three scatter plots arranged in a single row compare the Corporate TCI in all prefectures (horizontal axis) to the Corporate TCI in Tokyo (left panel), Osaka (middle panel), and Aichi (right panel) on the vertical axis. Each axis is scaled from 0 to 100, and the black points represent data points for each classification or entity. The red dashed line indicates the diagonal line.}
     \label{fig:prefcompare}
 \end{figure}

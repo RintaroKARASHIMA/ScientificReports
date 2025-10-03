@@ -7,30 +7,17 @@
 \section*{Discussion}
 \phantomsection
 \addcontentsline{toc}{section}{Discussion}
-This study applies the Technological Complexity Index (TCI) to Japanese patent data across various technological fields to identify sophisticated areas critical to innovation.
-Accurate assessment of technological complexity is essential for policymakers and corporate strategists aiming to maintain competitive advantages amidst intensifying global competition.
-Previous regional approaches have struggled with instability when employing detailed technological classifications, resulting in coarse and potentially misleading insights.
-This research provides three primary contributions.
+This study calculates the Technological Complexity Index (TCI) using Japanese patent data identify sophisticated technologies critical to innovation, and provides three primary contributions.
 First, it demonstrates methodological robustness at the corporate level.
 Unlike regional approaches, corporate-level TCI retains stable technological rankings even when classifications become highly detailed.
 Our results reveal notable complexity in the Pharmaceuticals and Chemistry sectors, likely reflecting Japan's industrial focus during the pharmaceutical industry's formative period.
 This consistency across classification scales represents significant progress compared to previous regional analyses that lost reliability when switching from broader to finer classifications.
-Second, the empirical findings underscore the advantage of evaluating technological complexity at the corporate level.
-Prior research suggested that complexity rankings could converge due to methodological limitations of classification systems~\cite{Hidalgo2021}.
-However, our corporate-level analysis maintains clear distinctions between technological fields even at granular classification levels.
-This evidence highlights the corporate approach’s potential to provide deeper and more accurate insights into technological dynamics within specific industries or regions.
-Third, our results offer practical implications for industrial policy and strategy.
-The identification of high-complexity technological sectors informs targeted investment and innovation strategies, especially relevant amid rapid advances in artificial intelligence and growing global competition.
+Second, by visualizing the temporal evolution of rankings, this study clarifies which technologies appear to have sustained innovative activity during Japan’s prolonged period of modest economic growth. The corporate level lens makes these trajectories easier to read because rankings remain stable enough to track long run patterns while still capturing meaningful changes. This perspective highlights fields that persist at high complexity as well as those that rise or fade, providing a more concrete basis for interpreting how Japan’s innovation system has been supported over time.
+Third, the corporate level approach also enables a finer view of regional technological characteristics. By attributing firms to places and then examining their technological portfolios, we can recover local profiles that are obscured by coarse regional aggregates. This yields clearer distinctions among prefectures and urban areas and helps identify locally salient capabilities that may be missed when analysis is performed only at the regional level.
+At the same time, there are limits that point to future work. Detecting dynamic shifts requires a balance between longer windows that improve stability and shorter windows that capture emerging fields. Our TCI is computed on a bipartite network in which corporations are connected to technology classes. A link is present when a corporation is active in a class according to an operational rule, for example filing a sufficient number of patents in that class or meeting an RCA based criterion. When patent counts are sparse, the network becomes thin and the HH iterations that infer complexity from the pattern of connections can become unstable \cite{PintarEssletzbichler2022}.
 
-Corporate strategists can leverage these insights to allocate resources effectively, fostering technological leadership and competitive differentiation.
-Nevertheless, our study faces several limitations.
-Capturing dynamic shifts in technological trends requires a balance between long-term analysis, which ensures stability, and short-term assessments, which detect emerging innovations.
-Shortening aggregation periods introduces challenges due to the sensitivity of TCI calculations to sparse patent data, thus decreasing result stability~\cite{PintarEssletzbichler2022}.
-The HH algorithm underlying TCI calculations evaluates complexity based on node connections within a bipartite network, making it vulnerable to inaccuracies when patent data are sparse.
-To address these challenges, future studies could integrate advanced methods such as the Fitness Complexity algorithm~\cite{Tacchella2012}, which employs nonlinear iterative processes to better capture network structures, enhancing robustness and reliability~\cite{Wu2016,Albeaik2017}.
+To mitigate this sparsity problem, future work can refine both the link rule and the information carried by each link. One direction is to move from unweighted to weighted edges that reflect the intensity and impact of inventive activity. Citation based measures are natural candidates, such as raw citations, family normalized citations, or time decayed citations, which may represent technological effort and impact more precisely than simple counts. Another direction is to adopt alternative iterative schemes such as the Fitness Complexity algorithm \cite{Tacchella2012}, which uses non linear iterations to capture structure in sparse settings and may yield more robust rankings \cite{Wu2016,Albeaik2017}.
+Building on these refinements, comparative robustness checks should evaluate TCI against citation based indicators and alternative weighting schemes. Machine learning models can then use these enriched features to predict shifts in technological rankings. Cross national applications will test whether the corporate level stability observed for Japan generalizes to other innovation systems.
+Ultimately, this study advances the corporate level understanding of technological complexity in Japan. By identifying high complexity technology areas with greater stability, it provides actionable evidence for strategic planning and policy design in a period of rapid technological change and intensifying global competition.
 
-Additionally, weighting links by citation counts rather than raw patent numbers could offer a more precise representation of technological effort and impact.
-Future research directions include comparative robustness analyses of TCI with alternative indicators such as patent citations, application of machine learning techniques to predict technological shifts, and cross-national comparative studies.
-Such explorations will deepen our understanding of technological complexity and provide richer guidance for industrial development strategies.
-Ultimately, this research significantly advances our understanding of technological complexity at the corporate level in Japan.
-By clearly identifying key technology sectors, our findings inform strategic planning and policy-making, positioning Japan advantageously in an era marked by technological acceleration and intensified international competition.
+
