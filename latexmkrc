@@ -1,1 +1,0 @@
-$pdflatex = "latexdiff /Sections/Results/old_consistency.tex /Sections/Results/consistency.tex > consistency-d.tex; pdflatex %O  main-d"
