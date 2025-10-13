@@ -1,0 +1,10 @@
+% 色と取り消し線の見た目を指定（新=赤、旧=黒取り消し線）
+\RequirePackage[normalem]{ulem}
+\RequirePackage{xcolor}
+\providecommand{\DIFadd}[1]{\textcolor{red}{#1}}
+\providecommand{\DIFdel}[1]{\textcolor{black}{\sout{#1}}}
+\providecommand{\DIFaddbegin}{\color{red}}
+\providecommand{\DIFaddend}{\color{black}}
+\providecommand{\DIFdelbegin}{\color{black}\begingroup
+  \markoverwith{\textcolor{black}{\rule[.5ex]{2pt}{1pt}}}\ULon}
+\providecommand{\DIFdelend}{\ULoff\endgroup}

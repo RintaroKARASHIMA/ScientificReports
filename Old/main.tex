@@ -1,0 +1,95 @@
+\documentclass[fleqn,10pt]{wlscirep}
+\usepackage{chngcntr}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{setspace}
+\usepackage{nameref}
+\usepackage{url}
+% \usepackage{hyperref}
+% \newcommand{\predeclareMethods}{%
+%   \begingroup
+%     \def\@currentlabelname{Methods}% ① \nameref 用のテキスト
+%     \phantomsection                % ② アンカー
+%     \label{section:Methods}        % ③ ラベル定義
+%   \endgroup
+% }
+% \makeatother
+% \usepackage{microtype}
+% \microtypesetup{patches=none}
+\doublespacing
+
+% hyperrefパッケージを最後に読み込む
+\usepackage[colorlinks=true]{hyperref}
+
+\begin{document}
+\title{Technological Complexity Based on Japanese Patent Data}
+\author[1]{Rintaro Karashima}
+\author[1, 2, *]{Hiroyasu Inoue}
+\affil[1]{University of Hyogo, Graduate School of Information Science, Kobe, Hyogo 6500047, Japan}
+\affil[2]{RIKEN, Center for Computational Science, Kobe, Hyogo 6500047, Japan}
+
+\affil[*]{inoue@gsis.u-hyogo.ac.jp}
+
+\keywords{Keyword1, Keyword2, Keyword3}
+
+\begin{abstract}
+As international competition intensifies in technologies, nations need to identify key technologies to foster innovation. 
+However, the identification is challenging due to the independent and inherently complex nature of technologies. 
+Traditionally, analyses of technological portfolios have been limited to simple evaluations, indicating merely whether a technology is specialized, or relying on the average Technological Complexity Index (TCI) of the specialized technologies. 
+This study proposes that evaluating TCI at the corporate level could provide finer granularity and more detailed insights than conventional regional evaluations. 
+To address the underutilization of corporate-level TCI assessments in Japan, this study applies the Technological Complexity Index using carefully processed patent data spanning fiscal years 1981 to 2010. 
+Specifically, we analyze a bipartite network composed of 1,938 corporations connected to technological fields categorized into either 35 or 124 classifications. 
+Our findings quantitatively characterize the ubiquity and sophistication of each technological field, reveal detailed technological trends reflecting broader societal contexts, and demonstrate methodological stability even when employing finer technological classifications. 
+Additionally, our corporate-level analysis allows consistent comparisons across different regions and technological fields, clarifying regional advantages in specific technologies. 
+This refined analytical framework offers policymakers and researchers robust, targeted insights, thereby significantly contributing to innovation strategy formulation in Japan.
+
+\end{abstract}
+
+\flushbottom
+\maketitle
+
+\thispagestyle{empty}
+% \noindent Please note: Abbreviations should be introduced at the first mention in the main text – no abbreviations lists. Suggested structure of main text (not enforced) is provided below.
+
+
+% Introduction
+\input{Sections/introduction.tex}
+
+% Results
+% Up to three levels of \textbf{subheading} are permitted. Subheadings should not be numbered.
+\input{Sections/results.tex}
+
+% Discussion
+\input{Sections/discussion.tex}
+
+% Methods
+\input{Sections/methods.tex}
+
+% Data Availability
+% For data citations of datasets uploaded to e.g. \emph{figshare}, please use the \verb|howpublished| option in the bib entry to specify the platform and the link, as in the \verb|Hao:gidmaps:2014| example in the sample bibliography file.
+
+\input{Sections/data_availability.tex}
+\input{Sections/code_availability.tex}
+
+% Bibliography
+% \noindent LaTeX formats citations and references automatically using the bibliography records in your .bib file, which you can edit via the project menu. Use the cite command for an inline citation, e.g.  \cite{Hao:gidmaps:2014}.
+\bibliography{ref}
+
+% \section*{Acknowledgements (not compulsory)}
+% Acknowledgements should be brief, and should not include thanks to anonymous referees and editors, or effusive comments. Grant or contribution numbers may be acknowledged.
+
+% Author contributions statement
+% Must include all authors, identified by initials, for example:
+% A.A. conceived the experiment(s),  A.A. and B.A. conducted the experiment(s), C.A. and D.A. analysed the results.  All authors reviewed the manuscript. 
+\input{Sections/author_contributions.tex}
+
+\section*{Competing interests}
+The authors declare no competing interests.
+
+% Additional information
+% To include, in this order: \textbf{Accession codes} (where applicable); \textbf{Competing interests} (mandatory statement). 
+\newpage
+\input{Sections/supplementary_information.tex}
+
+
+\end{document}

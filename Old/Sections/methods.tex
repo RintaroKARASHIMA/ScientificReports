@@ -1,0 +1,14 @@
+% \@currentlabelname を手動で設定して \nameref 用のテキストを登録
+\makeatletter
+\def\@currentlabelname{Methods}%
+\makeatother
+\label{section:Methods}
+
+\section*{Methods}
+\phantomsection
+\addcontentsline{toc}{section}{Methods}
+% \label{section:Methods}
+
+\input{Sections/Methods/data.tex}
+
+\input{Sections/Methods/technological_complexity.tex}
